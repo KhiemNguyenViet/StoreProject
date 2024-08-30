@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owen Style Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <style>
+        /* Category */
+        .header-category{
+            width: 50px;
+            margin-right: 20px;
+            position: relative;
+        }
+
+        .header-category-icon {
+            display: block;
+            font-size: 30px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .header-category:hover .header-category-list {
+            display: block;
+        }
+
+        .header-category-list{
+            position: absolute;
+            width: 200px;
+            top: 63px;
+            padding-left: 0;
+            left: -14px;
+            list-style: none;
+            border-radius: 2px;
+            background-color: #fff;
+            box-shadow: 0 1px 2px #666464;
+            z-index: 10;
+            animation: fadeIn ease-in 0.2s;
+            display: none;
+        }
+
+        .header-category-list::before {
+            position: absolute;
+            content: "";
+            border-color: transparent;
+            border-style: solid;
+            border-width: 13px 100px;
+            top: -24px;
+            right: 0px;
+        }
+
+        .header-category-item > a{
+            text-decoration: none;
+        }
+
+        .header-category-link:hover {
+            background-color: #ededed;
+            color: #000;
+        }
+
+        .header-category-link{
+            display: block;
+            color: #000;
+            font-size: 14px;
+            padding: 8px 16px;
+            font-weight: 400;
+            text-transform: none;
+        }
+
+
+
+
+        .nav-item .nav-item-icon{
+            font-size: 30px;
+            margin-left: 20px;
+            line-height: 30px;
+
+        }
+
+        .input-group-search {
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .input-group-search-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .nav-item-user {
+            position: relative;
+        }
+
+        .nav-item-user:hover .nav-item-user-menu{
+            display: block;
+            cursor: pointer;
+        }
+        .nav-item-user-menu {
+            position: absolute;
+            width: 200px;
+            top: 63px;
+            padding-left: 0;
+            right: -30px;
+            list-style: none;
+            border-radius: 2px;
+            background-color: #fff;
+            box-shadow: 0 1px 2px #666464;
+            z-index: 10;
+            animation: fadeIn ease-in 0.2s;
+            display: none;
+        }
+
+        .nav-item-user-menu::before {
+            position: absolute;
+            content: "";
+            border-color: transparent;
+            border-style: solid;
+            border-width: 13px 100px;
+            top: -24px;
+            right: 0px;
+        }
+
+        .nav-item-user-item > a{
+            text-decoration: none;
+        }
+
+        .nav-item-user-link {
+            display: block;
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+            padding: 8px 16px;
+            font-weight: 400;
+            text-transform: none;
+        }
+
+        .nav-item-user-link:hover {
+            background-color: #f2f2f2;
+            color: #000;
+        }
+
+        /* Cart */
+        .nav-item-cart{
+            position: relative;
+        }
+
+        .nav-item-cart:hover .nav-item-cart-list{
+            display: block;
+        }
+
+        .nav-item-cart-list {
+            position: absolute;
+            text-align: center;
+            top: 63px;
+            right: 0;
+            background-color: #fff;
+            width: 300px;
+            height: 160px;
+            border-radius: 2px;
+            z-index: 1;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            animation: fadeIn ease-in 0.2s;
+            display: none;
+        }
+
+        .nav-item-cart-list::before {
+            position: absolute;
+            content: "";
+            border-color: transparent;
+            border-style: solid;
+            border-width: 13px 100px;
+            top: -24px;
+            right: 0px;
+        }
+
+
+        .nav-item-cart-img {
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        .nav-item-cart-msg {
+            font-size: 1.4rem;
+            margin-top: 15px;
+            color: #000;
+        }
+
+
+        .navbar-brand img {
+            height: 50px;
+        }
+
+        .product-card{
+            border: none;
+
+        }
+
+        .cart-img-top{
+            position: relative;
+
+        }
+
+        .cart-img-top:hover {
+            background-color: #000;
+        }
+
+        .cart-buy {
+            position: absolute;
+            width: 120px;
+            height: 40px;
+            top: 210px;
+            right: 70px;
+            background-color: #fff;
+            color: #000;
+            border: none;
+            display: none;
+            animation: fadeIn ease-in 0.2s;
+        }
+
+        .cart-buy:hover {
+            background-color: #C4BAA2;
+            color: #fff;
+            border: none;
+        }
+
+        .cart-btn-img:hover {
+            cursor: pointer;
+        }
+
+        .cart-btn-img:hover .cart-buy {
+            display: block;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+        .product-card img {
+            width: 100%;
+            height: auto;
+        }
+        .card-title{
+            color: #8a8a8f;
+            text-transform: uppercase;
+        }
+
+        .card-text {
+            font-size: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav style="height: 80px;" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="header-category">
+        <i class="fa-solid fa-bars header-category-icon"></i>
+
+        <ul class="header-category-list">
+            <li class="header-category-item">
+                <a href="" class="header-category-link">Hàng mới</a>
+            </li>
+            <li class="header-category-item">
+                <a href="" class="header-category-link">Áo</a>
+            </li>
+            <li class="header-category-item">
+                <a href="" class="header-category-link">Quần</a>
+            </li>
+            <li class="header-category-item">
+                <a href="" class="header-category-link">Phụ Kiện</a>
+            </li>
+            <li class="header-category-item">
+                <a href="" class="header-category-link">Giá Tốt</a>
+            </li>
+            <li class="header-category-item">
+                <a href="" class="header-category-link">Cửa hàng</a>
+            </li>
+        </ul>
+    </div>
+    <a class="navbar-brand" href="#">
+        <img style="height: 40px;" src="https://owen.cdn.vccloud.vn/static/version1724551346/frontend/Owen/owen2021/vi_VN/images/logo.svg" alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <form class="form-inline my-2 my-lg-0">
+                    <div class="input-group">
+                        <input style="border-radius: 20px;" class="form-control input-group-search" type="search" placeholder="Search" aria-label="Search">
+                        <i class="fa-solid fa-magnifying-glass input-group-search-icon"></i>
+                    </div>
+                </form>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fa-regular fa-heart nav-item-icon"></i>
+                </a>
+            </li>
+            <li class="nav-item nav-item-user">
+                <a class="nav-link" href="#">
+                    <i class="fa-regular fa-user nav-item-icon"></i>
+                </a>
+
+                <ul class="nav-item-user-menu">
+                    <li class="nav-item-user-item">
+                        <a href="" class="nav-item-user-link">Tài khoản của tôi</a></li>
+                    <li class="nav-item-user-item">
+                        <a href="" class="nav-item-user-link">Danh sách yêu thích</a></li>
+                    <li class="nav-item-user-item">
+                        <a href="" class="nav-item-user-link">Đăng Nhập</a></li>
+                    <li class="nav-item-user-item nav-item-user-separate">
+                        <a href="" class="nav-item-user-link">Tạo Tài Khoản</a></li>
+                </ul>
+            </li>
+            <li class="nav-item nav-item-cart">
+                <a class="nav-link" href="#">
+                    <i class="fa-solid fa-cart-shopping nav-item-icon"></i>
+                </a>
+
+                <div class="nav-item-cart-list">
+                    <div class=""><img src="https://az911.vn/assets/images/no-cart.png" alt="" class="nav-item-cart-img"></div>
+                    <span class="nav-item-cart-msg">
+                            Chưa có sản phẩm
+                        </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<!-- Carousel -->
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://owen.cdn.vccloud.vn/media/codazon/slideshow/e/n/energy_flow-31.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://owen.cdn.vccloud.vn/media/codazon/slideshow/a/r/artboard-5-100_2808_1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://owen.cdn.vccloud.vn/media/codazon/slideshow/a/r/artboard_1-100.jpg" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<!-- Product Section -->
+<div class="container mt-5">
+    <div class="row">
+        <!-- Product 1 -->
+        <div class="col-md-4">
+            <div class="card product-card">
+                <img src="https://owen.cdn.vccloud.vn/media/amasty/ampromobanners/Artboard_11-100_2808.jpg" class="card-img-top" alt="Product 1">
+
+            </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="col-md-4">
+            <div class="card product-card">
+                <img src="https://owen.cdn.vccloud.vn/media/amasty/ampromobanners/Artboard_11_copy_2-100_2808.jpg" class="card-img-top" alt="Product 2">
+
+            </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="col-md-4">
+            <div class="card product-card">
+                <img src="https://owen.cdn.vccloud.vn/media/amasty/ampromobanners/Artboard_11_copy-100_2808.jpg" class="card-img-top" alt="Product 3">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="mt-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000"> <!-- Thêm data-interval để tự động chuyển ảnh -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img style="height: auto;" src="https://owen.cdn.vccloud.vn/media/codazon/slideshow/a/r/artboard_14-100_2808.jpg" class="d-block w-100" alt="Slide 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img style="height: auto;" src="https://owen.cdn.vccloud.vn/media/codazon/slideshow/a/r/artboard_14_copy-100_2808.jpg" class="d-block w-100" alt="Slide 2">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Product List Section -->
+<h3 style="font-weight: 600;" class="text-center mt-5 mb-4">BÁN CHẠY NHẤT</h3>
+<section class="mt-3">
+    <div class="container">
+        <div id="productCarousel" class="carousel slide" data-ride="carousel" data-interval="000">
+            <div class="carousel-inner">
+                <!-- Slide 1: 4 Products -->
+                <div class="carousel-item active">
+                    <div class="row">
+                        <!-- Product 1 -->
+                        <div class="col-md-3">
+                            <div class="card product-card">
+                                <div class="cart-btn-img">
+                                    <img src="https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/z/5/z5467222538110_09daf3473eaa4ccf41d399ac8048bf17.jpg" class="card-img-top" alt="Product 1">
+                                    <a href="#" class="cart-buy btn btn-primary">Mua ngay</a>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title">Sản phẩm 1</h6>
+                                    <p class="card-text">100.000</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product 2 -->
+                        <div class="col-md-3">
+                            <div class="card product-card">
+                                <div class="cart-btn-img">
+                                    <img src="https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/z/5/z5467222538110_09daf3473eaa4ccf41d399ac8048bf17.jpg" class="card-img-top" alt="Product 1">
+                                    <a href="#" class="cart-buy btn btn-primary">Mua ngay</a>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title">Sản phẩm 2</h6>
+                                    <p class="card-text">100.000</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product 3 -->
+                        <div class="col-md-3">
+                            <div class="card product-card">
+                                <div class="cart-btn-img">
+                                    <img src="https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/z/5/z5467222538110_09daf3473eaa4ccf41d399ac8048bf17.jpg" class="card-img-top" alt="Product 1">
+                                    <a href="#" class="cart-buy btn btn-primary">Mua ngay</a>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title">Sản phẩm 3</h6>
+                                    <p class="card-text">100.000</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product 4 -->
+                        <div class="col-md-3">
+                            <div class="card product-card">
+                                <div class="cart-btn-img">
+                                    <img src="https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/z/5/z5467222538110_09daf3473eaa4ccf41d399ac8048bf17.jpg" class="card-img-top" alt="Product 1">
+                                    <a href="#" class="cart-buy btn btn-primary">Mua ngay</a>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title">Sản phẩm 4</h6>
+                                    <p class="card-text">100.000</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2: 4 Products -->
+                <div class="carousel-item">
+                    <div class="row">
+                        <!-- Product 5 -->
+                        <div class="col-md-3">
+                            <div class="card product-card">
+                                <div class="cart-btn-img">
+                                    <img src="https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/z/5/z5467222538110_09daf3473eaa4ccf41d399ac8048bf17.jpg" class="card-img-top" alt="Product 1">
+                                    <a href="#" class="cart-buy btn btn-primary">Mua ngay</a>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title">Sản phẩm 5</h6>
+                                    <p class="card-text">100.000</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product 6 -->
+                        <div class="col-md-3">
+                            <div class="card product-card">
+                                <div class="cart-btn-img">
+                                    <img src="https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/z/5/z5467222538110_09daf3473eaa4ccf41d399ac8048bf17.jpg" class="card-img-top" alt="Product 1">
+                                    <a href="#" class="cart-buy btn btn-primary">Mua ngay</a>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title">Sản phẩm 6</h6>
+                                    <p class="card-text">100.000</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product 7 -->
+                        <div class="col-md-3">
+                            <div class="card product-card">
+                                <div class="cart-btn-img">
+                                    <img src="https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/z/5/z5467222538110_09daf3473eaa4ccf41d399ac8048bf17.jpg" class="card-img-top" alt="Product 1">
+                                    <a href="#" class="cart-buy btn btn-primary">Mua ngay</a>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title">Sản phẩm 7</h6>
+                                    <p class="card-text">100.000</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product 8 -->
+                        <div class="col-md-3">
+                            <div class="card product-card">
+                                <div class="cart-btn-img">
+                                    <img src="https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/z/5/z5467222538110_09daf3473eaa4ccf41d399ac8048bf17.jpg" class="card-img-top" alt="Product 1">
+                                    <a href="#" class="cart-buy btn btn-primary">Mua ngay</a>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title">Sản phẩm 8</h6>
+                                    <p class="card-text">100.000</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</div>
+
+<!-- Footer -->
+<footer class="bg-light text-center py-4 mt-5">
+    <p>© 2024 Owen Style Website. All rights reserved.</p>
+</footer>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
