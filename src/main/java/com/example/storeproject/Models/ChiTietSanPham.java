@@ -1,10 +1,17 @@
 package com.example.storeproject.Models;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
+@Entity
+@Table (name = "ChiTietSanPham")
 public class ChiTietSanPham {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int IDSP;
+
     private String TenSP;
     private BigDecimal Gia;
     private String ChiTietSP;
