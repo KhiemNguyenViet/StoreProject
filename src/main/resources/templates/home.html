@@ -7,10 +7,11 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <link rel="stylesheet" href="./index1.css">
     <!-- Custom CSS -->
     <style>
-        /* Category */
+
+        /* Header */
         .header-category{
             width: 50px;
             margin-right: 20px;
@@ -114,7 +115,6 @@
             animation: fadeIn ease-in 0.2s;
             display: none;
         }
-
         .nav-item-user-menu::before {
             position: absolute;
             content: "";
@@ -188,7 +188,7 @@
         .nav-item-cart-msg {
             font-size: 1.4rem;
             margin-top: 15px;
-            color: #000;
+            color: #000000;
         }
 
 
@@ -254,6 +254,75 @@
             font-size: 20px;
             font-weight: 600;
         }
+
+
+        /* Footer */
+        footer {
+            border-top: 2px solid  #666464;
+            padding-top: 16px;
+        }
+        .footer__heading {
+            font-size: 15px;
+            text-transform: uppercase;
+            color: #000;
+        }
+
+        .footer-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-netword {
+            display: flex;
+        }
+        strong {
+            color: #000;
+        }
+
+        .footer-item-text {
+            font-size: 12px;
+            color: #737373;
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+        }
+        .footer-item > a {
+            text-decoration: none;
+
+        }
+
+        .footer-item__link {
+            font-size: 12px;
+            color: #737373;
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-item__link:hover {
+            color: #C4BAA2;
+        }
+
+        .footer-item__icon {
+            font-size: 17px;
+            margin-right: 10px;
+
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding: 24px 0;
+            background-color: #f5f5f5;
+        }
+
+        .footer__text {
+            margin: 0;
+            font-size: 14px;
+            text-align: center;
+            color: #737373;
+        }
+
+
     </style>
 </head>
 <body>
@@ -265,22 +334,22 @@
 
         <ul class="header-category-list">
             <li class="header-category-item">
+                <a href="store.html" class="header-category-link">Cửa hàng</a>
+            </li>
+            <li class="header-category-item">
+                <a href="#Ao" class="header-category-link">Áo</a>
+            </li>
+            <li class="header-category-item">
+                <a href="#Quan" class="header-category-link">Quần</a>
+            </li>
+            <li class="header-category-item">
+                <a href="#Phukien" class="header-category-link">Phụ Kiện</a>
+            </li>
+            <li class="header-category-item">
+                <a href="#Banchay" class="header-category-link">Giá Tốt</a>
+            </li>
+            <li class="header-category-item">
                 <a href="" class="header-category-link">Hàng mới</a>
-            </li>
-            <li class="header-category-item">
-                <a href="" class="header-category-link">Áo</a>
-            </li>
-            <li class="header-category-item">
-                <a href="" class="header-category-link">Quần</a>
-            </li>
-            <li class="header-category-item">
-                <a href="" class="header-category-link">Phụ Kiện</a>
-            </li>
-            <li class="header-category-item">
-                <a href="" class="header-category-link">Giá Tốt</a>
-            </li>
-            <li class="header-category-item">
-                <a href="store" class="header-category-link">Cửa hàng</a>
             </li>
         </ul>
     </div>
@@ -316,13 +385,13 @@
                     <li class="nav-item-user-item">
                         <a href="" class="nav-item-user-link">Danh sách yêu thích</a></li>
                     <li class="nav-item-user-item">
-                        <a href="login" class="nav-item-user-link">Đăng Nhập</a></li>
+                        <a href="./login.html" class="nav-item-user-link">Đăng Nhập</a></li>
                     <li class="nav-item-user-item nav-item-user-separate">
-                        <a href="signup" class="nav-item-user-link">Tạo Tài Khoản</a></li>
+                        <a href="./signup.html" class="nav-item-user-link">Tạo Tài Khoản</a></li>
                 </ul>
             </li>
             <li class="nav-item nav-item-cart">
-                <a class="nav-link" href="product_detail">
+                <a class="nav-link" href="#">
                     <i class="fa-solid fa-cart-shopping nav-item-icon"></i>
                 </a>
 
@@ -339,7 +408,7 @@
 </nav>
 
 <!-- Carousel -->
-<div id="" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -562,8 +631,140 @@
 </div>
 
 <!-- Footer -->
-<footer class="bg-light text-center py-4 mt-5">
-    <p>© 2024 Owen Style Website. All rights reserved.</p>
+<footer class="footer">
+    <div class="container footer__content">
+        <div class="row">
+            <div class="col-md-5">
+                <img style="margin-bottom: 20px;" src="https://owen.cdn.vccloud.vn/static/version1724551346/frontend/Owen/owen2021/vi_VN/images/logo-footer.svg" alt="" class="">
+                <ul class="footer-list">
+                    <li class="footer-item">
+                        <label  class="footer-item-text">
+                            <strong>
+                                CÔNG TY CỔ PHẦN THỜI TRANG KOWIL VIỆT NAM
+                                <br>
+                                Hotline: 1900 8079
+                                <br>
+                                8:30 - 19:00 tất cả các ngày trong tuần.
+
+                            </strong>
+                        </label>
+                    </li>
+
+                    <li class="footer-item">
+                        <label class="footer-item-text">
+                            <strong>VP Phía Bắc:</strong>
+                            48 Phố Tố Hữu, Trung Văn, Nam Từ Liêm, Hà Nội.
+
+                        </label>
+                    </li>
+                    <label  class="footer-item-text">
+                        <li class="footer-item">
+                            <strong>VP Phía Nam:</strong>
+                            186A Nam Kỳ Khởi Nghĩa, Phường Võ Thị Sáu, Quận 3, TP.HCM
+
+                        </li>
+                    </label>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h3 class="footer__heading">Giới thiệu Owen</h3>
+
+                <ul class="footer-list">
+
+                    <li class="footer-item">
+                        <a href="" class="footer-item__link">Giới thiệu</a>
+                    </li>
+
+                    <li class="footer-item">
+                        <a href="" class="footer-item__link">Blog</a>
+                    </li>
+
+                    <li class="footer-item">
+                        <a href="" class="footer-item__link">Hệ thống cửa hàng</a>
+                    </li>
+
+                    <li class="footer-item">
+                        <a href="" class="footer-item__link">Liên hệ với Owen</a>
+                    </li>
+
+                    <li class="footer-item">
+                        <a href="" class="footer-item__link">Chính sách bảo mật</a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-2">
+                <h3 class="footer__heading">Hỗ trợ khách hàng</h3>
+                <ul class="footer-list">
+
+                    <li class="footer-item">
+                        <a href="" class="footer-item__link">Hỏi đáp</a>
+                    </li>
+
+                    <li class="footer-item">
+                        <a href="" class="footer-item__link">Chính sách vận chuyển</a>
+                    </li>
+
+                    <li class="footer-item">
+                        <a href="" class="footer-item__link">Hướng dẫn chọn kích cỡ</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="" class="footer-item__link">Hướng dẫn thanh toán</a>
+                    </li>
+
+                    <li class="footer-item">
+                        <a href="" class="footer-item__link">Quy định đổi hàng</a>
+                    </li>
+
+                    <li class="footer-item">
+                        <a href="" class="footer-item__link">Hướng dẫn mua hàng</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-3">
+                <h3 class="footer__heading">Hỗ trợ</h3>
+                <ul class="footer-list footer-netword">
+                    <li class="footer-item">
+                        <a href="" class="footer-item__link">
+                            <i class="footer-item__icon fa-brands fa-facebook"></i></a>
+                    </li>
+
+                    <li class="footer-item">
+                        <a href="" class="footer-item__link">
+                            <i class="footer-item__icon fa-brands fa-instagram"></i></a>
+                    </li>
+
+                    <li class="footer-item">
+                        <a href="" class="footer-item__link">
+                            <i class="footer-item__icon fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+
+
+                <h3 class="footer__heading">Phương thức thanh toán</h3>
+
+                <ul class="footer-list">
+
+                    <li class="footer-item">
+                        <a href="" class="footer-item__link"><img src="	https://owen.cdn.vccloud.vn/static/version1724551346/frontend/Owen/owen2021/vi_VN/images/pay.png" alt=""></a>
+                    </li>
+
+                    <li class="footer-item">
+                        <a href="" class="footer-item__link"><img src="https://owen.cdn.vccloud.vn/static/version1724551346/frontend/Owen/owen2021/vi_VN/images/vertify.png" alt=""></a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="grid wide">
+            <p class="footer__text">2024 - Bản quền thuộc về công ty tao là Long</p>
+        </div>
+    </div>
 </footer>
 
 <!-- Bootstrap JS and dependencies -->

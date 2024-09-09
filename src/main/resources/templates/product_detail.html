@@ -3,13 +3,414 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Owen Login Website</title>
+    <title>Chi tiết sản phẩm</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="./login.css">
     <!-- Custom CSS -->
+    <style>
 
+        /* Category */
+        .header-category{
+            width: 50px;
+            margin-right: 20px;
+            position: relative;
+        }
+
+        .header-category-icon {
+            display: block;
+            font-size: 30px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .header-category:hover .header-category-list {
+            display: block;
+        }
+
+        .header-category-list{
+            position: absolute;
+            width: 200px;
+            top: 63px;
+            padding-left: 0;
+            left: -14px;
+            list-style: none;
+            border-radius: 2px;
+            background-color: #fff;
+            box-shadow: 0 1px 2px #666464;
+            z-index: 10;
+            animation: fadeIn ease-in 0.2s;
+            display: none;
+        }
+
+        .header-category-list::before {
+            position: absolute;
+            content: "";
+            border-color: transparent;
+            border-style: solid;
+            border-width: 13px 100px;
+            top: -24px;
+            right: 0px;
+        }
+
+        .header-category-item > a{
+            text-decoration: none;
+        }
+
+        .header-category-link:hover {
+            background-color: #ededed;
+            color: #000;
+        }
+
+        .header-category-link{
+            display: block;
+            color: #000;
+            font-size: 14px;
+            padding: 8px 16px;
+            font-weight: 400;
+            text-transform: none;
+        }
+
+        .nav-item .nav-item-icon{
+            font-size: 30px;
+            margin-left: 20px;
+            line-height: 30px;
+
+        }
+
+        .input-group-search {
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .input-group-search-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .nav-item-user {
+            position: relative;
+        }
+
+        .nav-item-user:hover .nav-item-user-menu{
+            display: block;
+            cursor: pointer;
+        }
+        .nav-item-user-menu {
+            position: absolute;
+            width: 200px;
+            top: 63px;
+            padding-left: 0;
+            right: -30px;
+            list-style: none;
+            border-radius: 2px;
+            background-color: #fff;
+            box-shadow: 0 1px 2px #666464;
+            z-index: 10;
+            animation: fadeIn ease-in 0.2s;
+            display: none;
+        }
+
+        .nav-item-user-menu::before {
+            position: absolute;
+            content: "";
+            border-color: transparent;
+            border-style: solid;
+            border-width: 13px 100px;
+            top: -24px;
+            right: 0px;
+        }
+
+        .nav-item-user-item > a{
+            text-decoration: none;
+        }
+
+        .nav-item-user-link {
+            display: block;
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+            padding: 8px 16px;
+            font-weight: 400;
+            text-transform: none;
+        }
+
+        .nav-item-user-link:hover {
+            background-color: #f2f2f2;
+            color: #000;
+        }
+
+        /* Cart */
+        .nav-item-cart{
+            position: relative;
+        }
+
+        .nav-item-cart:hover .nav-item-cart-list{
+            display: block;
+        }
+
+        .nav-item-cart-list {
+            position: absolute;
+            text-align: center;
+            top: 63px;
+            right: 0;
+            background-color: #fff;
+            width: 300px;
+            height: 160px;
+            border-radius: 2px;
+            z-index: 1;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            animation: fadeIn ease-in 0.2s;
+            display: none;
+        }
+
+        .nav-item-cart-list::before {
+            position: absolute;
+            content: "";
+            border-color: transparent;
+            border-style: solid;
+            border-width: 13px 100px;
+            top: -24px;
+            right: 0px;
+        }
+
+
+        .nav-item-cart-img {
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        .nav-item-cart-msg {
+            font-size: 1.4rem;
+            margin-top: 15px;
+            color: #000000;
+        }
+
+
+        .navbar-brand img {
+            height: 50px;
+        }
+
+        .product-card{
+            border: none;
+
+        }
+
+        .cart-img-top{
+            position: relative;
+
+        }
+
+        .cart-img-top:hover {
+            background-color: #000;
+        }
+
+        .cart-buy {
+            position: absolute;
+            width: 120px;
+            height: 40px;
+            top: 210px;
+            right: 70px;
+            background-color: #fff;
+            color: #000;
+            border: none;
+            display: none;
+            animation: fadeIn ease-in 0.2s;
+        }
+
+        .cart-buy:hover {
+            background-color: #C4BAA2;
+            color: #fff;
+            border: none;
+        }
+
+        .cart-btn-img:hover {
+            cursor: pointer;
+        }
+
+        .cart-btn-img:hover .cart-buy {
+            display: block;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+        }
+        .card-title{
+            color: #8a8a8f;
+            text-transform: uppercase;
+        }
+
+        .card-text {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+
+        .navigation-header {
+
+        }
+
+        .navigation-header-list {
+            display: flex;
+            list-style: none;
+
+        }
+        .navigation-header-item {
+            padding: 10px;
+            position: relative;
+        }
+
+        .navigation-header-item:first-child::after {
+            content: "";
+            display: block;
+            position: absolute;
+            border-right: 1px solid #656565;
+            height: 20px;
+            right: 0px;
+            top: 50%;
+            transform: translateY(-50%);
+
+        }
+        .navigation-header-link {
+            color: #8a8a8f;
+        }
+
+        .navigation-header-link:hover {
+            color: #8a8a8f;
+            cursor: pointer;
+        }
+
+        .form-group > label {
+            font-weight: 500;
+            margin: 0;
+        }
+
+        #btn-login {
+            background-color: #000;
+            border: none;
+            color: #fff;
+            text-transform: uppercase;
+            border-radius: 0;
+            margin-top: 40px;
+        }
+
+        #btn-login > a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        #btn-login:hover {
+            opacity: 0.8;
+        }
+
+        #btn-signup{
+            background-color: #fff;
+            text-transform: uppercase;
+            border-radius: 0;
+            margin-top: 40px;
+            border: 1px solid #656565;
+        }
+
+        #btn-signup > a {
+            color: #656565;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+
+        #btn-signup:hover {
+            background-color: rgb(231 231 231);
+        }
+
+
+        .form-control {
+            border-radius: 0;
+            border: 0;
+            background-color: rgb(231 231 231);
+        }
+
+
+
+
+        /* Footer */
+        footer {
+            border-top: 2px solid  #666464;
+            padding-top: 16px;
+        }
+        .footer__heading {
+            font-size: 15px;
+            text-transform: uppercase;
+            color: #000;
+        }
+
+        .footer-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-netword {
+            display: flex;
+        }
+        strong {
+            color: #000;
+        }
+
+        .footer-item-text {
+            font-size: 12px;
+            color: #737373;
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+        }
+        .footer-item > a {
+            text-decoration: none;
+
+        }
+
+        .footer-item__link {
+            font-size: 12px;
+            color: #737373;
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+        }
+        .footer-item__link:hover {
+            color: #C4BAA2;
+        }
+
+        .footer-item__icon {
+            font-size: 17px;
+            margin-right: 10px;
+
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding: 24px 0;
+            background-color: #f5f5f5;
+        }
+
+        .footer__text {
+            margin: 0;
+            font-size: 14px;
+            text-align: center;
+            color: #737373;
+        }
+
+
+    </style>
 </head>
 <body>
 
@@ -35,11 +436,11 @@
                 <a href="" class="header-category-link">Giá Tốt</a>
             </li>
             <li class="header-category-item">
-                <a href="store" class="header-category-link">Cửa hàng</a>
+                <a href="" class="header-category-link">Cửa hàng</a>
             </li>
         </ul>
     </div>
-    <a class="navbar-brand" href="home.html">
+    <a class="navbar-brand" href="#">
         <img style="height: 40px;" src="https://owen.cdn.vccloud.vn/static/version1724551346/frontend/Owen/owen2021/vi_VN/images/logo.svg" alt="Logo">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,20 +465,19 @@
                 <a class="nav-link" href="#">
                     <i class="fa-regular fa-user nav-item-icon"></i>
                 </a>
-
                 <ul class="nav-item-user-menu">
                     <li class="nav-item-user-item">
                         <a href="" class="nav-item-user-link">Tài khoản của tôi</a></li>
                     <li class="nav-item-user-item">
                         <a href="" class="nav-item-user-link">Danh sách yêu thích</a></li>
                     <li class="nav-item-user-item">
-                        <a href="login" class="nav-item-user-link">Đăng Nhập</a></li>
+                        <a href="" class="nav-item-user-link">Đăng Nhập</a></li>
                     <li class="nav-item-user-item nav-item-user-separate">
-                        <a href="signup" class="nav-item-user-link">Tạo Tài Khoản</a></li>
+                        <a href="" class="nav-item-user-link">Tạo Tài Khoản</a></li>
                 </ul>
             </li>
             <li class="nav-item nav-item-cart">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="#">
                     <i class="fa-solid fa-cart-shopping nav-item-icon"></i>
                 </a>
 
@@ -96,12 +496,78 @@
 <!-- Navigation -->
 <div class="navigation-header">
     <ul class="navigation-header-list">
-        <li class="navigation-header-item"><a class="navigation-header-link" href="home" title="Trang chủ">Trang chủ</a></li>
+        <li class="navigation-header-item"><a class="navigation-header-link" href="home.html" title="Trang chủ">Trang chủ</a></li>
         <li class="navigation-header-item">Chi tiết sản phẩm</li>
     </ul>
 </div>
 
 </div>
+
+
+<!-- Product -->
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <!-- Hình ảnh sản phẩm -->
+        <div class="col-md-6">
+            <img src="https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/z/5/z5467222538110_09daf3473eaa4ccf41d399ac8048bf17.jpg" alt="Product Image" class="img-fluid">
+        </div>
+
+        <!-- Thông tin sản phẩm -->
+        <div class="col-md-6">
+            <h2 style="text-transform: uppercase;font-size: 25px;font-weight: 500;">Áo sơ mi - AS240006D</h2>
+            <p style="text-transform: uppercase;font-size: 15px;color: #666464;font-weight: 500;">Mã sp :AS240006D</p>
+
+            <p><strong>1.400.000đ</strong></p>
+            <!-- Màu sắc -->
+            <div class="mb-3">
+                <label for="color-select" class="form-label"><strong>Màu sắc:</strong></label>
+                <select id="color-select" class="form-select">
+                    <option value="red">Đỏ</option>
+                    <option value="blue">Xanh dương</option>
+                    <option value="green">Xanh lá</option>
+                </select>
+            </div>
+
+
+            <!-- Nút thêm vào giỏ hàng -->
+            <button type="submit" id="btn-login" class="btn btn-primary btn-block mb-3"><a href="">THÊM VÀO GIỎ HÀNG</a></button>
+            <!-- Mô tả -->
+            <span style="border-top: 2px solid #666464;">
+                <p><strong>Mô tả:</strong></p>
+                <p>Áo sơ mi dài tay, kiểu dáng Slim Fit dễ mặc, hợp form dáng.
+                    Màu sắc và kiểu dáng trẻ trung, kiểu dáng hiện đại, dễ phối đồ.
+                    Chất liệu: Knit</p>
+            </span>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal hướng dẫn chọn size -->
+<div class="modal fade" id="sizeGuideModal" tabindex="-1" aria-labelledby="sizeGuideModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="sizeGuideModalLabel">Hướng dẫn chọn size</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Chọn kích cỡ dựa trên số đo của bạn:</p>
+                <ul>
+                    <li><strong>S:</strong> Vòng ngực 85-90cm, vòng eo 70-75cm</li>
+                    <li><strong>M:</strong> Vòng ngực 90-95cm, vòng eo 75-80cm</li>
+                    <li><strong>L:</strong> Vòng ngực 95-100cm, vòng eo 80-85cm</li>
+                    <li><strong>XL:</strong> Vòng ngực 100-105cm, vòng eo 85-90cm</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <!-- Footer -->
 <footer class="footer">
@@ -111,7 +577,7 @@
                 <img style="margin-bottom: 20px;" src="https://owen.cdn.vccloud.vn/static/version1724551346/frontend/Owen/owen2021/vi_VN/images/logo-footer.svg" alt="" class="">
                 <ul class="footer-list">
                     <li class="footer-item">
-                        <label  class="footer-item-text">
+                        <label class="footer-item-text">
                             <strong>
                                 CÔNG TY CỔ PHẦN THỜI TRANG KOWIL VIỆT NAM
                                 <br>
