@@ -581,11 +581,11 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="ctsp : ${prd_dt}">
-            <td th:text="${ctsp.IDSP}"></td>
-            <td th:text="${ctsp.TenSP}"></td>
-            <td th:text="${ctsp.SoLuong}"></td>
-            <td th:text="${ctsp.Gia}"></td>
+        <tr th:each="ChiTietSanPham : ${ctsp}">
+            <td th:text="${ChiTietSanPham.IDSP}"></td>
+            <td th:text="${ChiTietSanPham.tenSP}"></td>
+            <td th:text="${ChiTietSanPham.soLuong}"></td>
+            <td th:text="${ChiTietSanPham.gia}"></td>
         </tr>
         </tbody>
     </table>

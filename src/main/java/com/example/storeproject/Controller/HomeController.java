@@ -1,6 +1,6 @@
 package com.example.storeproject.Controller;
 
-import com.example.storeproject.Models.ChiTietSanPham;
+import com.example.storeproject.Models.ChiTietSanPhamml;
 import com.example.storeproject.Service.CTSPService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,5 +35,15 @@ public class HomeController {
     @RequestMapping("store")
     public String store(Model model){
         return "store";
+    }
+
+    @Autowired
+    private CTSPService ctspService;
+
+    @RequestMapping("product_detail_alt")
+    public String getPD(Model model){
+        List<ChiTietSanPhamml> ctsp = ctspService.getAllChiTietSanPham();
+        model.addAttribute("ctsp",ctsp);
+        return "product_detail";
     }
 }
