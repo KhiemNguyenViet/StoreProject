@@ -27,8 +27,12 @@ public class HomeController {
         return "signup";
     }
 
+    @Autowired
+    private CTSPService ctspService;
     @RequestMapping("product_detail")
     public String product_detail(Model model){
+        List<ChiTietSanPhamml> ctsp = ctspService.getAllChiTietSanPham();
+        model.addAttribute("ctsp",ctsp);
         return "product_detail";
     }
 
@@ -37,13 +41,12 @@ public class HomeController {
         return "store";
     }
 
-    @Autowired
-    private CTSPService ctspService;
 
-    @RequestMapping("product_detail_alt")
-    public String getPD(Model model){
-        List<ChiTietSanPhamml> ctsp = ctspService.getAllChiTietSanPham();
-        model.addAttribute("ctsp",ctsp);
-        return "product_detail";
-    }
+
+//    @RequestMapping("product_detail_alt")
+//    public String getPD(Model model){
+//        List<ChiTietSanPhamml> ctsp = ctspService.getAllChiTietSanPham();
+//        model.addAttribute("ctsp",ctsp);
+//        return "product_detail";
+//    }
 }
