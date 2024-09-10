@@ -5,11 +5,13 @@ import com.example.storeproject.Repository.ChiTietSanPhamRepository;
 import com.example.storeproject.Service.CTSPService;
 import com.fasterxml.jackson.databind.annotation.JacksonStdImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.Optional;
-
-@JacksonStdImpl
+@RequestMapping
+@Service
 public class CTSPServiceImpl implements CTSPService {
     @Autowired
     private ChiTietSanPhamRepository chiTietSanPhamRepository;

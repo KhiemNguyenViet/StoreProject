@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.Optional;
+
+@RequestMapping
 @Service
 public interface CTSPService {
     List<ChiTietSanPham> getAllChiTietSanPham();
