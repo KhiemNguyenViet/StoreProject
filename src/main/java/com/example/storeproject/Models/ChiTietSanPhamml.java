@@ -38,7 +38,6 @@ public class ChiTietSanPhamml {
             AnhSP = anhSP;
             SoLuong = soLuong;
             this.IDLoai = IDLoai;
-            PhanLoai = phanLoai;
             ChatLieu = chatLieu;
             NgayThemVao = ngayThemVao;
             this.IDKhuyenMai = IDKhuyenMai;
