@@ -22,93 +22,113 @@ public class ChiTietSanPhamml {
         private String AnhSP;
         private int SoLuong;
         private int IDLoai;
-        private int PhanLoai;
         private String ChatLieu;
         private Date NgayThemVao;
         private int IDKhuyenMai;
         private int IDSize;
 
-        public ChiTietSanPhamml() {
-        }
+    public ChiTietSanPhamml() {
+    }
 
-        public ChiTietSanPhamml(int IDSP, String tenSP, BigDecimal gia, String chiTietSP, String anhSP, int soLuong, int IDLoai, int phanLoai, String chatLieu, Date ngayThemVao, int IDKhuyenMai, int IDSize) {
-            this.IDSP = IDSP;
-            TenSP = tenSP;
-            Gia = gia;
-            ChiTietSP = chiTietSP;
-            AnhSP = anhSP;
-            SoLuong = soLuong;
-            this.IDLoai = IDLoai;
-            PhanLoai = phanLoai;
-            ChatLieu = chatLieu;
-            NgayThemVao = ngayThemVao;
-            this.IDKhuyenMai = IDKhuyenMai;
-            this.IDSize = IDSize;
-        }
+    public ChiTietSanPhamml(int IDSP, String tenSP, BigDecimal gia, String chiTietSP, String anhSP, int soLuong, int IDLoai, String chatLieu, Date ngayThemVao, int IDKhuyenMai, int IDSize) {
+        this.IDSP = IDSP;
+        TenSP = tenSP;
+        Gia = gia;
+        ChiTietSP = chiTietSP;
+        AnhSP = anhSP;
+        SoLuong = soLuong;
+        this.IDLoai = IDLoai;
+        ChatLieu = chatLieu;
+        NgayThemVao = ngayThemVao;
+        this.IDKhuyenMai = IDKhuyenMai;
+        this.IDSize = IDSize;
+    }
+
+    public int getIDSP() {
+        return IDSP;
+    }
 
     public void setIDSP(int IDSP) {
-            this.IDSP = IDSP;
-        }
+        this.IDSP = IDSP;
+    }
+
+    public String getTenSP() {
+        return TenSP;
+    }
 
     public void setTenSP(String tenSP) {
-            TenSP = tenSP;
-        }
+        TenSP = tenSP;
+    }
+
+    public BigDecimal getGia() {
+        return Gia;
+    }
 
     public void setGia(BigDecimal gia) {
-            Gia = gia;
-        }
+        Gia = gia;
+    }
+
+    public String getChiTietSP() {
+        return ChiTietSP;
+    }
 
     public void setChiTietSP(String chiTietSP) {
-            ChiTietSP = chiTietSP;
-        }
+        ChiTietSP = chiTietSP;
+    }
+
+    public String getAnhSP() {
+        return AnhSP;
+    }
 
     public void setAnhSP(String anhSP) {
-            AnhSP = anhSP;
-        }
+        AnhSP = anhSP;
+    }
+
+    public int getSoLuong() {
+        return SoLuong;
+    }
 
     public void setSoLuong(int soLuong) {
-            SoLuong = soLuong;
-        }
+        SoLuong = soLuong;
+    }
+
+    public int getIDLoai() {
+        return IDLoai;
+    }
 
     public void setIDLoai(int IDLoai) {
-            this.IDLoai = IDLoai;
-        }
+        this.IDLoai = IDLoai;
+    }
 
-    public void setPhanLoai(int phanLoai) {
-            PhanLoai = phanLoai;
-        }
+    public String getChatLieu() {
+        return ChatLieu;
+    }
 
     public void setChatLieu(String chatLieu) {
-            ChatLieu = chatLieu;
-        }
+        ChatLieu = chatLieu;
+    }
+
+    public Date getNgayThemVao() {
+        return NgayThemVao;
+    }
 
     public void setNgayThemVao(Date ngayThemVao) {
-            NgayThemVao = ngayThemVao;
-        }
+        NgayThemVao = ngayThemVao;
+    }
+
+    public int getIDKhuyenMai() {
+        return IDKhuyenMai;
+    }
 
     public void setIDKhuyenMai(int IDKhuyenMai) {
-            this.IDKhuyenMai = IDKhuyenMai;
-        }
+        this.IDKhuyenMai = IDKhuyenMai;
+    }
+
+    public int getIDSize() {
+        return IDSize;
+    }
 
     public void setIDSize(int IDSize) {
-            this.IDSize = IDSize;
-        }
-
-    @Override
-    public String toString() {
-        return "ChiTietSanPhamml{" +
-                "IDSP=" + IDSP +
-                ", TenSP='" + TenSP + '\'' +
-                ", Gia=" + Gia +
-                ", ChiTietSP='" + ChiTietSP + '\'' +
-                ", AnhSP='" + AnhSP + '\'' +
-                ", SoLuong=" + SoLuong +
-                ", IDLoai=" + IDLoai +
-                ", PhanLoai=" + PhanLoai +
-                ", ChatLieu='" + ChatLieu + '\'' +
-                ", NgayThemVao=" + NgayThemVao +
-                ", IDKhuyenMai=" + IDKhuyenMai +
-                ", IDSize=" + IDSize +
-                '}';
+        this.IDSize = IDSize;
     }
 }
