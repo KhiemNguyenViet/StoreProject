@@ -22,7 +22,6 @@ public class ChiTietSanPhamml {
         private String AnhSP;
         private int SoLuong;
         private int IDLoai;
-        private int PhanLoai;
         private String ChatLieu;
         private Date NgayThemVao;
         private int IDKhuyenMai;
@@ -31,7 +30,7 @@ public class ChiTietSanPhamml {
         public ChiTietSanPhamml() {
         }
 
-        public ChiTietSanPhamml(int IDSP, String tenSP, BigDecimal gia, String chiTietSP, String anhSP, int soLuong, int IDLoai, int phanLoai, String chatLieu, Date ngayThemVao, int IDKhuyenMai, int IDSize) {
+        public ChiTietSanPhamml(int IDSP, String tenSP, BigDecimal gia, String chiTietSP, String anhSP, int soLuong, int IDLoai, String chatLieu, Date ngayThemVao, int IDKhuyenMai, int IDSize) {
             this.IDSP = IDSP;
             TenSP = tenSP;
             Gia = gia;
@@ -74,10 +73,6 @@ public class ChiTietSanPhamml {
             this.IDLoai = IDLoai;
         }
 
-    public void setPhanLoai(int phanLoai) {
-            PhanLoai = phanLoai;
-        }
-
     public void setChatLieu(String chatLieu) {
             ChatLieu = chatLieu;
         }
@@ -104,7 +99,6 @@ public class ChiTietSanPhamml {
                 ", AnhSP='" + AnhSP + '\'' +
                 ", SoLuong=" + SoLuong +
                 ", IDLoai=" + IDLoai +
-                ", PhanLoai=" + PhanLoai +
                 ", ChatLieu='" + ChatLieu + '\'' +
                 ", NgayThemVao=" + NgayThemVao +
                 ", IDKhuyenMai=" + IDKhuyenMai +
