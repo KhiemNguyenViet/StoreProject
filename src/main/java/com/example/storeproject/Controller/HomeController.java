@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class HomeController {
@@ -42,6 +43,12 @@ public class HomeController {
         return "cart";
     }
 
+    @RequestMapping(value = "/deleteCart", method = RequestMethod.GET)
+    public String deletecart(@RequestParam("IDSP") Long ctspId, Model model) {
+        ctspService.deleteChiTietSanPham(ctspId);
+        return "redirect:/cart";
+    }
+
     @RequestMapping("product_detail")
     public String product_detail(Model model){
 //        List<ChiTietSanPhamml> ctsp = ctspService.getAllChiTietSanPham();
@@ -49,10 +56,17 @@ public class HomeController {
         return "product_detail";
     }
 
-    @RequestMapping(value = "/deleteCart", method = RequestMethod.GET)
-    public String deletecart(@RequestParam("IDSP") Long ctspId, Model model) {
-        ctspService.deleteChiTietSanPham(ctspId);
-        return "redirect:/cart";
+    @RequestMapping("/edit_product")
+    public String managerprd(Model model){
+
+        return "edit_product";
+    }
+
+    @RequestMapping(value = "/edit_product", method = RequestMethod.GET)
+    public String editProduct(@RequestParam("IDSP") Long ctspId, Model model) {
+        Optional<ChiTietSanPhamml> productEdit = ctspService.findChiTietSanPhamById(ctspId);
+        productEdit.ifPresent(ctsp -> model.addAttribute("ctsp", ctsp));
+        return "edit_product";
     }
 
     @RequestMapping("store")
