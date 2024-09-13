@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -34,6 +36,12 @@ public class HomeController {
         List<ChiTietSanPhamml> ctsp = ctspService.getAllChiTietSanPham();
         model.addAttribute("ctsp",ctsp);
         return "product_detail";
+    }
+
+    @RequestMapping(value = "/deletectsp", method = RequestMethod.GET)
+    public String deleteCTSP(@RequestParam("IDSP") Long ctspId, Model model) {
+        ctspService.deleteChiTietSanPham(ctspId);
+        return "redirect:/product_detail";
     }
 
     @RequestMapping("store")

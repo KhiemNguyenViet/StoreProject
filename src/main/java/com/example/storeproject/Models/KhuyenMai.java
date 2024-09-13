@@ -1,10 +1,18 @@
 package com.example.storeproject.Models;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+
 import java.math.BigDecimal;
 import java.util.Date;
-
+@Getter
+@Entity
+@Table(name="khuyenmai")
 public class KhuyenMai {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int IDKhuyenMai;
+
     private String TenKhuyenMai;
     private String MoTa;
     private Date NgayBatDau;

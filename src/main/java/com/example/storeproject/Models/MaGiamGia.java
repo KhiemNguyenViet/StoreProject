@@ -1,9 +1,17 @@
 package com.example.storeproject.Models;
 
-import java.math.BigDecimal;
+import jakarta.persistence.*;
+import lombok.Getter;
 
+import java.math.BigDecimal;
+@Getter
+@Entity
+@Table(name="magiamgia")
 public class MaGiamGia {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int MaGiamGia;
+
     private BigDecimal GiaTriGiamGia;
     private String LoaiGiamGia;
     private boolean TrangThai;

@@ -1,8 +1,16 @@
 package com.example.storeproject.Models;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+
 import java.util.Date;
 
+@Getter
+@Entity
+@Table(name="users")
 public class NguoiDung {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int IDKhachHang;
     private String Ten;
     private Date NgaySinh;

@@ -1,6 +1,14 @@
 package com.example.storeproject.Models;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+
+@Getter
+@Entity
+@Table(name="loaisp")
 public class LoaiSP {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int IDLoai;
     private String TenLoai;
 

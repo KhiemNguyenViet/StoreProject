@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Getter
 @Entity
-@Table(name = "ChiTietSanPham")
+@Table(name = "ctsp")
 public class ChiTietSanPhamml {
 
 
@@ -94,5 +94,21 @@ public class ChiTietSanPhamml {
             this.IDSize = IDSize;
         }
 
-
+    @Override
+    public String toString() {
+        return "ChiTietSanPhamml{" +
+                "IDSP=" + IDSP +
+                ", TenSP='" + TenSP + '\'' +
+                ", Gia=" + Gia +
+                ", ChiTietSP='" + ChiTietSP + '\'' +
+                ", AnhSP='" + AnhSP + '\'' +
+                ", SoLuong=" + SoLuong +
+                ", IDLoai=" + IDLoai +
+                ", PhanLoai=" + PhanLoai +
+                ", ChatLieu='" + ChatLieu + '\'' +
+                ", NgayThemVao=" + NgayThemVao +
+                ", IDKhuyenMai=" + IDKhuyenMai +
+                ", IDSize=" + IDSize +
+                '}';
+    }
 }

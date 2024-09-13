@@ -578,14 +578,20 @@
             <th>Tên</th>
             <th>Số lượng</th>
             <th>Giá</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="ChiTietSanPham : ${ctsp}">
-            <td th:text="${ChiTietSanPham.IDSP}"></td>
-            <td th:text="${ChiTietSanPham.tenSP}"></td>
-            <td th:text="${ChiTietSanPham.soLuong}"></td>
-            <td th:text="${ChiTietSanPham.gia}"></td>
+        <tr th:each="ctsp : ${ctsp}">
+            <td th:text="${ctsp.IDSP}"></td>
+            <td th:text="${ctsp.tenSP}"></td>
+            <td th:text="${ctsp.soLuong}"></td>
+            <td th:text="${ctsp.gia}"></td>
+            <td>
+<!--                <a th:href="@{/editprd(id=${ctsp.id})}" class="btn btn-primary">Edit</a>-->
+                <a href=""></a>
+                <a th:href="@{/deletectsp(id=${ctsp.IDSP})}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
         </tr>
         </tbody>
     </table>

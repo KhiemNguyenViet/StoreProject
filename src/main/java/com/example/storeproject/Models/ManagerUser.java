@@ -1,7 +1,16 @@
 package com.example.storeproject.Models;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+
+@Getter
+@Entity
+@Table(name="usermanager")
 public class ManagerUser {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int IDQuyen;
+
     private String TenQuyen;
 
     public ManagerUser() {
