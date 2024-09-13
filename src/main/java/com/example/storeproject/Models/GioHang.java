@@ -7,7 +7,7 @@ public class GioHang {
     private int soLuong;
     private Boolean xoaSP;
     private Boolean themVoucher;
-    private BigDecimal tongTien;
+    private BigDecimal gia;
     private Boolean muaHang;
     private int idSP;
 
@@ -44,12 +44,12 @@ public class GioHang {
         this.themVoucher = themVoucher;
     }
 
-    public BigDecimal getTongTien() {
-        return tongTien;
+    public BigDecimal getgia() {
+        return gia;
     }
 
-    public void setTongTien(BigDecimal tongTien) {
-        this.tongTien = tongTien;
+    public void setTongTien(BigDecimal gia) {
+        this.gia = gia;
     }
 
     public Boolean getMuaHang() {

@@ -13,9 +13,13 @@ import java.util.List;
 
 @Controller
 public class HomeController {
+    @Autowired
+    private CTSPService ctspService;
 
     @RequestMapping("home")
     public String home(Model model){
+        List<ChiTietSanPhamml> ctsp = ctspService.getAllChiTietSanPham();
+        model.addAttribute("ctsp",ctsp);
         return "home";
     }
 
@@ -29,23 +33,32 @@ public class HomeController {
         return "signup";
     }
 
-    @Autowired
-    private CTSPService ctspService;
-    @RequestMapping("product_detail")
-    public String product_detail(Model model){
+
+
+    @RequestMapping("cart")
+    public String cart(Model model){
         List<ChiTietSanPhamml> ctsp = ctspService.getAllChiTietSanPham();
         model.addAttribute("ctsp",ctsp);
+        return "cart";
+    }
+
+    @RequestMapping("product_detail")
+    public String product_detail(Model model){
+//        List<ChiTietSanPhamml> ctsp = ctspService.getAllChiTietSanPham();
+//        model.addAttribute("ctsp",ctsp);
         return "product_detail";
     }
 
-    @RequestMapping(value = "/deletectsp", method = RequestMethod.GET)
-    public String deleteCTSP(@RequestParam("IDSP") Long ctspId, Model model) {
+    @RequestMapping(value = "/deleteCart", method = RequestMethod.GET)
+    public String deletecart(@RequestParam("IDSP") Long ctspId, Model model) {
         ctspService.deleteChiTietSanPham(ctspId);
-        return "redirect:/product_detail";
+        return "redirect:/cart";
     }
 
     @RequestMapping("store")
     public String store(Model model){
+        List<ChiTietSanPhamml> ctsp = ctspService.getAllChiTietSanPham();
+        model.addAttribute("ctsp",ctsp);
         return "store";
     }
 

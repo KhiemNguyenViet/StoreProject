@@ -477,7 +477,7 @@
                 </ul>
             </li>
             <li class="nav-item nav-item-cart">
-                <a class="nav-link" href="product_detail">
+                <a class="nav-link" href="cart">
                     <i class="fa-solid fa-cart-shopping nav-item-icon"></i>
                 </a>
 
@@ -565,36 +565,6 @@
             </div>
         </div>
     </div>
-</div>
-
-
-
-<div class="container">
-    <h1>Giỏ Hàng</h1>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Tên</th>
-            <th>Số lượng</th>
-            <th>Giá</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="ctsp : ${ctsp}">
-            <td th:text="${ctsp.IDSP}"></td>
-            <td th:text="${ctsp.tenSP}"></td>
-            <td th:text="${ctsp.soLuong}"></td>
-            <td th:text="${ctsp.gia}"></td>
-            <td>
-<!--                <a th:href="@{/editprd(id=${ctsp.id})}" class="btn btn-primary">Edit</a>-->
-                <a href=""></a>
-                <a th:href="@{/deletectsp(id=${ctsp.IDSP})}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
 </div>
 
 <!-- Footer -->

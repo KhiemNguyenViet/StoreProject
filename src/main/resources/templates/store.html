@@ -508,7 +508,7 @@
                 </ul>
             </li>
             <li class="nav-item nav-item-cart">
-                <a class="nav-link" href="product_detail">
+                <a class="nav-link" href="cart">
                     <i class="fa-solid fa-cart-shopping nav-item-icon"></i>
                 </a>
 
@@ -582,115 +582,18 @@
             <div class="row">
                 <!-- Sản phẩm 1 -->
                 <div class="col-md-3">
-                    <div class="card product-card">
+                    <div class="card product-card" th:each="ctsp : ${ctsp}">
                         <div class="cart-btn-img">
-                            <img src="https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/z/5/z5467222538110_09daf3473eaa4ccf41d399ac8048bf17.jpg" class="card-img-top" alt="Product 1">
-                            <a href="#" class="cart-buy btn btn-primary">Mua ngay</a>
+                            <img th:src="${ctsp.anhSP}" class="card-img-top" alt="Product 1">
+                            <a href="cart" class="cart-buy btn btn-primary">Mua ngay</a>
                         </div>
                         <div class="card-body">
-                            <h6 class="card-title">Sản phẩm 1</h6>
-                            <p class="card-text">100.000</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product 2 -->
-                <div class="col-md-3">
-                    <div class="card product-card">
-                        <div class="cart-btn-img">
-                            <img src="https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/z/5/z5467222538110_09daf3473eaa4ccf41d399ac8048bf17.jpg" class="card-img-top" alt="Product 1">
-                            <a href="#" class="cart-buy btn btn-primary">Mua ngay</a>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-title">Sản phẩm 2</h6>
-                            <p class="card-text">100.000</p>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- Product 3 -->
-                <div class="col-md-3">
-                    <div class="card product-card">
-                        <div class="cart-btn-img">
-                            <img src="https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/z/5/z5467222538110_09daf3473eaa4ccf41d399ac8048bf17.jpg" class="card-img-top" alt="Product 1">
-                            <a href="#" class="cart-buy btn btn-primary">Mua ngay</a>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-title">Sản phẩm 3</h6>
-                            <p class="card-text">100.000</p>
+                            <h6 class="card-title" th:text="${ctsp.tenSP}"></h6>
+                            <p class="card-text" th:text="${ctsp.gia} + ' Đ'"></p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 4 -->
-
-                <div class="col-md-3">
-                    <div class="card product-card">
-                        <div class="cart-btn-img">
-                            <img src="https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/z/5/z5467222538110_09daf3473eaa4ccf41d399ac8048bf17.jpg" class="card-img-top" alt="Product 1">
-                            <a href="#" class="cart-buy btn btn-primary">Mua ngay</a>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-title">Sản phẩm 3</h6>
-                            <p class="card-text">100.000</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sản phẩm 1 -->
-                <div class="col-md-3">
-                    <div class="card product-card">
-                        <div class="cart-btn-img">
-                            <img src="https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/z/5/z5467222538110_09daf3473eaa4ccf41d399ac8048bf17.jpg" class="card-img-top" alt="Product 1">
-                            <a href="#" class="cart-buy btn btn-primary">Mua ngay</a>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-title">Sản phẩm 1</h6>
-                            <p class="card-text">100.000</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product 2 -->
-                <div class="col-md-3">
-                    <div class="card product-card">
-                        <div class="cart-btn-img">
-                            <img src="https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/z/5/z5467222538110_09daf3473eaa4ccf41d399ac8048bf17.jpg" class="card-img-top" alt="Product 1">
-                            <a href="#" class="cart-buy btn btn-primary">Mua ngay</a>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-title">Sản phẩm 2</h6>
-                            <p class="card-text">100.000</p>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- Product 3 -->
-                <div class="col-md-3">
-                    <div class="card product-card">
-                        <div class="cart-btn-img">
-                            <img src="https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/z/5/z5467222538110_09daf3473eaa4ccf41d399ac8048bf17.jpg" class="card-img-top" alt="Product 1">
-                            <a href="#" class="cart-buy btn btn-primary">Mua ngay</a>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-title">Sản phẩm 3</h6>
-                            <p class="card-text">100.000</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 4 -->
-
-                <div class="col-md-3">
-                    <div class="card product-card">
-                        <div class="cart-btn-img">
-                            <img src="https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/z/5/z5467222538110_09daf3473eaa4ccf41d399ac8048bf17.jpg" class="card-img-top" alt="Product 1">
-                            <a href="#" class="cart-buy btn btn-primary">Mua ngay</a>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-title">Sản phẩm 3</h6>
-                            <p class="card-text">100.000</p>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <!-- Phân trang -->
