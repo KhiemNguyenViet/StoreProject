@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @Entity
-@Table(name="PhanLoai")
+@Table(name="phanloai")
 public class PhanLoai {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
