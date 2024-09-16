@@ -48,7 +48,7 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/deleteCart", method = RequestMethod.GET)
-    public String deletecart(@RequestParam("IDSP") Long ctspId, Model model) {
+    public String deletecart(@RequestParam("id") Long ctspId, Model model) {
         ctspService.deleteChiTietSanPham(ctspId);
         return "redirect:/cart";
     }

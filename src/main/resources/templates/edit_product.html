@@ -463,54 +463,54 @@
     <form  th:object="${ctsp}" th:action="@{saveprd}"  method="post">
         <div class="mb-3">
             <label th:for="tenSP" >Tên sản phẩm</label>
-            <input type="text"  class="form-control" placeholder="Nhập tên sản phẩm" required>
+            <input type="text" th:field="*{tenSP}" class="form-control" placeholder="Nhập tên sản phẩm" required>
         </div>
         <div class="mb-3">
             <label for="productImage" th:for="anhSP" class="form-label">Link hình ảnh sản phẩm</label>
-            <input type="url"  class="form-control" id="productImage" placeholder="Nhập URL hình ảnh sản phẩm">
+            <input type="url" th:field="*{anhSP}" class="form-control" id="productImage" placeholder="Nhập URL hình ảnh sản phẩm">
         </div>
 <!--        <div class="mb-3">-->
 <!--            <label for="productName" class="form-label">Màu sắc sản phẩm</label>-->
 <!--            <input type="text" class="form-control" id="productName" placeholder="Nhập màu sắc sản phẩm" required>-->
 <!--        </div>-->
 
-        <!-- Kích cỡ -->
-<!--        <div class="mb-3">-->
-<!--            <label class="form-label" th:for="size">Kích cỡ</label>-->
-<!--            <div>-->
-<!--                <div class="form-check form-check-inline">-->
-<!--                    <input class="form-check-input" type="radio" name="size" id="sizeSmall" value="S">-->
-<!--                    <label class="form-check-label" for="sizeSmall">S</label>-->
-<!--                </div>-->
-<!--                <div class="form-check form-check-inline">-->
-<!--                    <input class="form-check-input" type="radio" name="size" id="sizeMedium" value="M">-->
-<!--                    <label class="form-check-label" for="sizeMedium">M</label>-->
-<!--                </div>-->
-<!--                <div class="form-check form-check-inline">-->
-<!--                    <input class="form-check-input" type="radio" name="size" id="sizeLarge" value="L">-->
-<!--                    <label class="form-check-label" for="sizeLarge">L</label>-->
-<!--                </div>-->
-<!--                <div class="form-check form-check-inline">-->
-<!--                    <input class="form-check-input" type="radio" name="size" id="sizeXLarge" value="XL">-->
-<!--                    <label class="form-check-label" for="sizeXLarge">XL</label>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+         Kích cỡ
+        <div class="mb-3">
+            <label class="form-label" th:for="IDSize">Kích cỡ</label>
+            <div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeSmall" value="S">
+                    <label class="form-check-label" for="sizeSmall">S</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeMedium" value="M">
+                    <label class="form-check-label" for="sizeMedium">M</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeLarge" value="L">
+                    <label class="form-check-label" for="sizeLarge">L</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeXLarge" value="XL">
+                    <label class="form-check-label" for="sizeXLarge">XL</label>
+                </div>
+            </div>
+        </div>
         <div class="mb-3">
             <label th:for="chatLieu" class="form-label">Chất liệu sản phẩm</label>
-            <input type="number"  class="form-control" placeholder="Nhập chất liệu sản phẩm" required>
+            <input type="number" th:field="*{chatLieu}" class="form-control" placeholder="Nhập chất liệu sản phẩm" required>
         </div>
         <div class="mb-3">
             <label th:for="chiTietSP" class="form-label">Mô tả sản phẩm</label>
-            <textarea class="form-control"  rows="3" placeholder="Nhập mô tả sản phẩm"></textarea>
+            <textarea class="form-control" th:field="*{chiTietSP}" rows="3" placeholder="Nhập mô tả sản phẩm"></textarea>
         </div>
         <div class="mb-3">
             <label th:for="gia" class="form-label">Giá sản phẩm</label>
-            <input type="number"  class="form-control" placeholder="Nhập giá sản phẩm" required>
+            <input type="number" th:field="*{gia}" class="form-control" placeholder="Nhập giá sản phẩm" required>
         </div>
         <div class="form-group">
             <label th:for="ngayThemVao">Ngày thêm sản phẩm</label>
-            <input type="date"  class="form-control" />
+            <input type="date" th:for="*{ngayThemVao}" class="form-control" />
         </div>
 
         <button type="submit" class="btn btn-primary">

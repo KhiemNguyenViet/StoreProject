@@ -1,0 +1,36 @@
+package com.example.storeproject.Service.Impl;
+
+import com.example.storeproject.Models.LoaiSP;
+import com.example.storeproject.Repository.LoaiRepository;
+import com.example.storeproject.Service.LoaiService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class LoaiServiceImpl implements LoaiService {
+    @Autowired
+    private LoaiRepository loaiRepository;
+
+    @Override
+    public List<LoaiSP> getAllLoaiSP(){
+        return (List<LoaiSP>) loaiRepository.findAll();
+    }
+
+    @Override
+    public void saveLoai(LoaiSP loaiSP){
+        loaiRepository.save(loaiSP);
+    }
+
+    @Override
+    public void deleteLoai(Long id){
+        loaiRepository.deleteById(id);
+    }
+
+    @Override
+    public Optional<LoaiSP> findLoaiSPById(Long id){
+        return loaiRepository.findById(id);
+    }
+}
