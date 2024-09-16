@@ -1,6 +1,6 @@
 package com.example.storeproject.Controller;
 
-import com.example.storeproject.Models.ChiTietSanPhamml;
+import com.example.storeproject.Models.ChiTietSanPham;
 import com.example.storeproject.Service.CTSPService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class HomeController {
@@ -19,7 +18,7 @@ public class HomeController {
 
     @RequestMapping("home")
     public String home(Model model){
-        List<ChiTietSanPhamml> ctsp = ctspService.getAllChiTietSanPham();
+        List<ChiTietSanPham> ctsp = ctspService.getAllChiTietSanPham();
         model.addAttribute("ctsp",ctsp);
         return "home";
     }
@@ -34,11 +33,16 @@ public class HomeController {
         return "signup";
     }
 
-
+    @RequestMapping("store")
+    public String store(Model model){
+        List<ChiTietSanPham> ctsp = ctspService.getAllChiTietSanPham();
+        model.addAttribute("ctsp",ctsp);
+        return "store";
+    }
 
     @RequestMapping("cart")
     public String cart(Model model){
-        List<ChiTietSanPhamml> ctsp = ctspService.getAllChiTietSanPham();
+        List<ChiTietSanPham> ctsp = ctspService.getAllChiTietSanPham();
         model.addAttribute("ctsp",ctsp);
         return "cart";
     }
@@ -51,37 +55,32 @@ public class HomeController {
 
     @RequestMapping("product_detail")
     public String product_detail(Model model){
-//        List<ChiTietSanPhamml> ctsp = ctspService.getAllChiTietSanPham();
-//        model.addAttribute("ctsp",ctsp);
         return "product_detail";
     }
 
     @RequestMapping("/edit_product")
     public String managerprd(Model model){
-
+        List<ChiTietSanPham> ctsp = ctspService.getAllChiTietSanPham();
+        model.addAttribute("ctsp", ctsp);
         return "edit_product";
     }
 
-    @RequestMapping(value = "/edit_product", method = RequestMethod.GET)
-    public String editProduct(@RequestParam("IDSP") Long ctspId, Model model) {
-        Optional<ChiTietSanPhamml> productEdit = ctspService.findChiTietSanPhamById(ctspId);
-        productEdit.ifPresent(ctsp -> model.addAttribute("ctsp", ctsp));
+    @RequestMapping(value = "saveprd", method = RequestMethod.POST)
+    public String save(ChiTietSanPham chiTietSanPham) {
+        ctspService.saveChiTietSanPham(chiTietSanPham);
+        return "redirect:/edit_product";
+    }
+
+    @RequestMapping(value = "addprd")
+    public String addProduct(Model model) {
+        model.addAttribute("ctsp", new ChiTietSanPham());
         return "edit_product";
     }
 
-    @RequestMapping("store")
-    public String store(Model model){
-        List<ChiTietSanPhamml> ctsp = ctspService.getAllChiTietSanPham();
-        model.addAttribute("ctsp",ctsp);
-        return "store";
+    @RequestMapping(value = "/deleteprd", method = RequestMethod.GET)
+    public String deleteProduct(@RequestParam("IDSP") Long ctspId, Model model) {
+        ctspService.deleteChiTietSanPham(ctspId);
+        return "redirect:/edit_product";
     }
 
-
-
-//    @RequestMapping("product_detail_alt")
-//    public String getPD(Model model){
-//        List<ChiTietSanPhamml> ctsp = ctspService.getAllChiTietSanPham();
-//        model.addAttribute("ctsp",ctsp);
-//        return "product_detail";
-//    }
 }

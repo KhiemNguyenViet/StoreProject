@@ -1,16 +1,16 @@
 package com.example.storeproject.Service;
 
-import com.example.storeproject.Models.ChiTietSanPhamml;
+import com.example.storeproject.Models.ChiTietSanPham;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface CTSPService {
-    List<ChiTietSanPhamml> getAllChiTietSanPham();
+    List<ChiTietSanPham> getAllChiTietSanPham();
 
-    void saveChiTietSanPham(ChiTietSanPhamml chiTietSanPham);
+    void saveChiTietSanPham(ChiTietSanPham chiTietSanPham);
 
     void deleteChiTietSanPham(Long id);
 
-    Optional<ChiTietSanPhamml> findChiTietSanPhamById(Long id);
+    Optional<ChiTietSanPham> findChiTietSanPhamById(Long id);
 }
