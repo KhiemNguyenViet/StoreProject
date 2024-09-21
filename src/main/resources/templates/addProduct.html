@@ -7,9 +7,11 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href=".css/store.css">
+    <!--    <link rel="stylesheet" href="./edit_product.css">-->
     <!-- Custom CSS -->
+
     <style>
+
 
         /* Header */
         .header-category{
@@ -112,6 +114,7 @@
             animation: fadeIn ease-in 0.2s;
             display: none;
         }
+
         .nav-item-user-menu::before {
             position: absolute;
             content: "";
@@ -185,7 +188,7 @@
         .nav-item-cart-msg {
             font-size: 1.4rem;
             margin-top: 15px;
-            color:#000000;
+            /*color: var(--text-color);*/
         }
 
 
@@ -211,8 +214,8 @@
             position: absolute;
             width: 120px;
             height: 40px;
-            top: 40%;
-            right: 20%;
+            top: 210px;
+            right: 70px;
             background-color: #fff;
             color: #000;
             border: none;
@@ -254,43 +257,11 @@
             font-weight: 600;
         }
 
-
-        /* Category */
-
-
-        .banner-img {
-            background-size: cover;
-            width: 100%;
-            background-repeat: no-repeat;
-        }
-
-        .list-group-item {
-            padding: 5px 0;
-            border: none;
-        }
-
-        .list-group-item-type {
-            font-weight: 500;
-        }
-
-        .list-group-link{
-            color: #656565;
-
-        }
-
-        .list-group-link:hover {
-            color: #c9ae63;
-            text-decoration: none;
-        }
-
-
-
-        .page-link {
-            color: #000;
-        }
-
         /* Navigation */
 
+        .navigation-header {
+
+        }
 
         .navigation-header-list {
             display: flex;
@@ -321,57 +292,6 @@
             color: #8a8a8f;
             cursor: pointer;
         }
-
-        .form-group > label {
-            font-weight: 500;
-            margin: 0;
-        }
-
-        #btn-login {
-            background-color: #000;
-            border: none;
-            color: #fff;
-            text-transform: uppercase;
-            border-radius: 0;
-            margin-top: 40px;
-        }
-
-        #btn-login > a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        #btn-login:hover {
-            opacity: 0.8;
-        }
-
-        #btn-signup{
-            background-color: #fff;
-            text-transform: uppercase;
-            border-radius: 0;
-            margin-top: 40px;
-            border: 1px solid #656565;
-        }
-
-        #btn-signup > a {
-            color: #656565;
-            text-decoration: none;
-            font-size: 15px;
-        }
-
-
-        #btn-signup:hover {
-            background-color: rgb(231 231 231);
-        }
-
-
-        .form-control {
-            border-radius: 0;
-            border: 0;
-            background-color: rgb(231 231 231);
-        }
-
 
         /* Footer */
         footer {
@@ -441,6 +361,7 @@
 
 
     </style>
+
 </head>
 <body>
 
@@ -470,7 +391,7 @@
             </li>
         </ul>
     </div>
-    <a class="navbar-brand" href="home">
+    <a class="navbar-brand" href="#">
         <img style="height: 40px;" src="https://owen.cdn.vccloud.vn/static/version1724551346/frontend/Owen/owen2021/vi_VN/images/logo.svg" alt="Logo">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -508,7 +429,7 @@
                 </ul>
             </li>
             <li class="nav-item nav-item-cart">
-                <a class="nav-link" href="cart">
+                <a class="nav-link" href="#">
                     <i class="fa-solid fa-cart-shopping nav-item-icon"></i>
                 </a>
 
@@ -527,105 +448,73 @@
 <!-- Navigation -->
 <div class="navigation-header">
     <ul class="navigation-header-list">
-        <li class="navigation-header-item"><a class="navigation-header-link" href="home" title="Trang chủ">Trang chủ</a></li>
-        <li class="navigation-header-item">Cửa hàng</li>
+        <li class="navigation-header-item"><a class="navigation-header-link" href="store" title="Trang chủ">Cửa hàng</a></li>
+        <li class="navigation-header-item">Quản lý sản phẩm</li>
     </ul>
 </div>
 
-</div>
-
-
-<!-- Category -->
-<div style="margin-bottom: 50px;" class="container mt-5">
-    <div class="row">
-
-        <!-- Banner -->
-
-        <img style="background-size: cover; width: 100%; background-repeat: no-repeat;" src="https://owen.vn/media/catalog/category/hang_moi_ve.jpg" alt="">
-
-        <div class="col-md-2 category-sidebar mt-5">
-            <h4>Danh Mục</h4>
-            <ul class="list-group">
-                <li id="Ao" class="list-group-item list-group-item-type">Áo</li>
-
-                <li class="list-group-item"><a href="" class="list-group-link">Áo Polo</a></li>
-                <li class="list-group-item"><a href="" class="list-group-link">Áo Sơ Mi</a></li>
-                <li class="list-group-item"><a href="" class="list-group-link">Áo Blazer</a></li>
-
-
-                <li id="Quan" class="list-group-item list-group-item-type">Quần</li>
-
-                <li class="list-group-item"><a href="" class="list-group-link">Quần Short</a></li>
-                <li class="list-group-item"><a href="" class="list-group-link">Quần Tây</a></li>
-                <li class="list-group-item"><a href="" class="list-group-link">Quần Khaki</a></li>
-
-
-                <li id="Phukien" class="list-group-item list-group-item-type">Phụ kiện</li>
-
-                <li class="list-group-item"><a href="" class="list-group-link">Tất</a></li>
-                <li class="list-group-item"><a href="" class="list-group-link">Dây lưng</a></li>
-                <li class="list-group-item"><a href="" class="list-group-link">Ví da</a></li>
-
-
-                <li id="Banchay" class="list-group-item list-group-item-type">Sản phẩm bán chạy</li>
-
-                <li class="list-group-item"><a href="" class="list-group-link">Áo Sơ Mi</a></li>
-                <li class="list-group-item"><a href="" class="list-group-link">Ví Da</a></li>
-                <li class="list-group-item"><a href="" class="list-group-link">Quần Tây</a></li>
-
-
-            </ul>
-        </div>
-
-        <!-- Product -->
-        <div class="col-md-10 product-gallery mt-5">
-            <div class="btn-edit-product" style="position: relative;">
-                <a href="quanlysp" >
-                    <button class="btn btn-edit" style="background-color: #c5c2c2;position: absolute;right: 0;bottom: 6px;height: 30px;line-height: 15px;" >
-                        <i class="fa-solid fa-wrench"></i>
-                        Quản lý sản phẩm
-                    </button>
-                </a>
-            </div>
-            <div class="row">
-                <!-- Sản phẩm 1 -->
-                <div class="col-md-3">
-                    <div class="card product-card" th:each="ctsp : ${ctsp}">
-                        <div class="cart-btn-img">
-                            <img th:src="${ctsp.anhSP}" class="card-img-top" alt="Product 1">
-                            <a href="cart" class="cart-buy btn btn-primary">Mua ngay</a>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-title" th:text="${ctsp.tenSP}"></h6>
-                            <p class="card-text" th:text="${ctsp.gia} + ' Đ'"></p>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-
-            <!-- Phân trang -->
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center mt-4">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">
-                            <i class="fa-solid fa-angle-left"></i>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">
-                            <i class="fa-solid fa-angle-right"></i>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+<div class="container form-container">
+    <div class="form-header text-center">
+        <h1>New Product</h1>
     </div>
+    <form th:object="${ctsp}" th:action="@{saveprd}" method="post">
+        <div class="mb-3">
+            <label th:for="tenSP"  >Tên sản phẩm</label>
+            <input type="text" th:field="*{tenSP}" class="form-control" placeholder="Nhập tên sản phẩm" required>
+        </div>
+                <div class="mb-3">
+                    <label for="productImage" th:for="anhSP" class="form-label">Link hình ảnh sản phẩm</label>
+                    <input type="url" th:field="*{anhSP}" class="form-control" id="productImage" placeholder="Nhập URL hình ảnh sản phẩm">
+                </div>
+        <!--        <div class="mb-3">-->
+        <!--            <label for="productName" class="form-label">Màu sắc sản phẩm</label>-->
+        <!--            <input type="text" class="form-control" id="productName" placeholder="Nhập màu sắc sản phẩm" required>-->
+        <!--        </div>-->
+
+                 Kích cỡ
+<!--                <div class="mb-3">-->
+<!--                    <label class="form-label" th:for="IDSize">Kích cỡ</label>-->
+<!--                    <div>-->
+<!--                        <div class="form-check form-check-inline">-->
+<!--                            <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeSmall" value="S">-->
+<!--                            <label class="form-check-label" for="sizeSmall">S</label>-->
+<!--                        </div>-->
+<!--                        <div class="form-check form-check-inline">-->
+<!--                            <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeMedium" value="M">-->
+<!--                            <label class="form-check-label" for="sizeMedium">M</label>-->
+<!--                        </div>-->
+<!--                        <div class="form-check form-check-inline">-->
+<!--                            <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeLarge" value="L">-->
+<!--                            <label class="form-check-label" for="sizeLarge">L</label>-->
+<!--                        </div>-->
+<!--                        <div class="form-check form-check-inline">-->
+<!--                            <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeXLarge" value="XL">-->
+<!--                            <label class="form-check-label" for="sizeXLarge">XL</label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="mb-3">
+                    <label th:for="chatLieu" class="form-label">Chất liệu sản phẩm</label>
+                    <input type="text" th:field="*{chatLieu}" class="form-control" placeholder="Nhập chất liệu sản phẩm" required>
+                </div>
+                <div class="mb-3">
+                    <label th:for="chiTietSP" class="form-label">Mô tả sản phẩm</label>
+                    <textarea class="form-control" th:field="*{chiTietSP}" rows="3" placeholder="Nhập mô tả sản phẩm"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label th:for="gia" class="form-label">Giá sản phẩm</label>
+                    <input type="number" th:field="*{gia}" class="form-control" placeholder="Nhập giá sản phẩm" required>
+                </div>
+                <div class="form-group">
+                    <label th:for="ngayThemVao">Ngày thêm sản phẩm</label>
+                    <input type="date" th:for="*{ngayThemVao}" class="form-control" />
+                </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">Save</button>
+        </div>
+    </form>
 </div>
+
 <!-- Footer -->
 <footer class="footer">
     <div class="container footer__content">
@@ -647,7 +536,7 @@
                     </li>
 
                     <li class="footer-item">
-                        <label class="footer-item-text">
+                        <label  class="footer-item-text">
                             <strong>VP Phía Bắc:</strong>
                             48 Phố Tố Hữu, Trung Văn, Nam Từ Liêm, Hà Nội.
 
@@ -713,6 +602,7 @@
                     <li class="footer-item">
                         <a href="" class="footer-item__link">Quy định đổi hàng</a>
                     </li>
+
                     <li class="footer-item">
                         <a href="" class="footer-item__link">Hướng dẫn mua hàng</a>
                     </li>

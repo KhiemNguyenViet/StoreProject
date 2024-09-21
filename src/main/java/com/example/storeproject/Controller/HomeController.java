@@ -10,11 +10,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class HomeController {
     @Autowired
-    private CTSPService ctspService;
+    private final CTSPService ctspService;
+
+    public HomeController(CTSPService ctspService) {
+        this.ctspService = ctspService;
+    }
 
     @RequestMapping("home")
     public String home(Model model){
@@ -58,29 +63,36 @@ public class HomeController {
         return "product_detail";
     }
 
-    @RequestMapping("/edit_product")
-    public String managerprd(Model model){
+    @RequestMapping("/quanlysp")
+    public String quanlysp( Model model){
         List<ChiTietSanPham> ctsp = ctspService.getAllChiTietSanPham();
         model.addAttribute("ctsp", ctsp);
-        return "edit_product";
+        return "quanlysp";
     }
 
     @RequestMapping(value = "saveprd", method = RequestMethod.POST)
-    public String save(ChiTietSanPham chiTietSanPham) {
-        ctspService.saveChiTietSanPham(chiTietSanPham);
-        return "redirect:/edit_product";
+    public String save(ChiTietSanPham ctsp) {
+        ctspService.saveChiTietSanPham(ctsp);
+        return "redirect:/quanlysp";
     }
 
     @RequestMapping(value = "addprd")
     public String addProduct(Model model) {
         model.addAttribute("ctsp", new ChiTietSanPham());
-        return "edit_product";
+        return "addProduct";
     }
 
     @RequestMapping(value = "/deleteprd", method = RequestMethod.GET)
-    public String deleteProduct(@RequestParam("IDSP") Long ctspId, Model model) {
+    public String deleteProduct(@RequestParam("id") Long ctspId, Model model) {
         ctspService.deleteChiTietSanPham(ctspId);
-        return "redirect:/edit_product";
+        return "redirect:/quanlysp";
+    }
+
+    @RequestMapping(value = "/editprd", method = RequestMethod.GET)
+    public String editProduct(@RequestParam("id") Long ctspId, Model model) {
+        Optional<ChiTietSanPham> productEdit = ctspService.findChiTietSanPhamById(ctspId);
+        productEdit.ifPresent(ctsp -> model.addAttribute("ctsp", ctsp));
+        return "editProduct";
     }
 
 }

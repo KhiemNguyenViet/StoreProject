@@ -7,7 +7,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="./edit_product.css">
+    <!--    <link rel="stylesheet" href="./edit_product.css">-->
     <!-- Custom CSS -->
 
     <style>
@@ -448,57 +448,54 @@
 <!-- Navigation -->
 <div class="navigation-header">
     <ul class="navigation-header-list">
-        <li class="navigation-header-item"><a class="navigation-header-link" href="./store.html" title="Trang chủ">Cửa hàng</a></li>
+        <li class="navigation-header-item"><a class="navigation-header-link" href="store" title="Trang chủ">Cửa hàng</a></li>
         <li class="navigation-header-item">Quản lý sản phẩm</li>
     </ul>
 </div>
 
-</div>
-
-<!-- Edit Product -->
-<div class="container mt-5">
-    <h2>Quản lý sản phẩm</h2>
-
-    <!-- Form thêm, sửa sản phẩm -->
-    <form  th:object="${ctsp}" th:action="@{saveprd}"  method="post">
+<div class="container form-container">
+    <div class="form-header text-center">
+        <h1>New Product</h1>
+    </div>
+    <form th:object="${ctsp}" th:action="@{saveprd}" method="post">
         <div class="mb-3">
-            <label th:for="tenSP" >Tên sản phẩm</label>
+            <label th:for="tenSP"  >Tên sản phẩm</label>
             <input type="text" th:field="*{tenSP}" class="form-control" placeholder="Nhập tên sản phẩm" required>
         </div>
         <div class="mb-3">
             <label for="productImage" th:for="anhSP" class="form-label">Link hình ảnh sản phẩm</label>
             <input type="url" th:field="*{anhSP}" class="form-control" id="productImage" placeholder="Nhập URL hình ảnh sản phẩm">
         </div>
-<!--        <div class="mb-3">-->
-<!--            <label for="productName" class="form-label">Màu sắc sản phẩm</label>-->
-<!--            <input type="text" class="form-control" id="productName" placeholder="Nhập màu sắc sản phẩm" required>-->
-<!--        </div>-->
+        <!--        <div class="mb-3">-->
+        <!--            <label for="productName" class="form-label">Màu sắc sản phẩm</label>-->
+        <!--            <input type="text" class="form-control" id="productName" placeholder="Nhập màu sắc sản phẩm" required>-->
+        <!--        </div>-->
 
-         Kích cỡ
-        <div class="mb-3">
-            <label class="form-label" th:for="IDSize">Kích cỡ</label>
-            <div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeSmall" value="S">
-                    <label class="form-check-label" for="sizeSmall">S</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeMedium" value="M">
-                    <label class="form-check-label" for="sizeMedium">M</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeLarge" value="L">
-                    <label class="form-check-label" for="sizeLarge">L</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeXLarge" value="XL">
-                    <label class="form-check-label" for="sizeXLarge">XL</label>
-                </div>
-            </div>
-        </div>
+        Kích cỡ
+        <!--                <div class="mb-3">-->
+        <!--                    <label class="form-label" th:for="IDSize">Kích cỡ</label>-->
+        <!--                    <div>-->
+        <!--                        <div class="form-check form-check-inline">-->
+        <!--                            <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeSmall" value="S">-->
+        <!--                            <label class="form-check-label" for="sizeSmall">S</label>-->
+        <!--                        </div>-->
+        <!--                        <div class="form-check form-check-inline">-->
+        <!--                            <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeMedium" value="M">-->
+        <!--                            <label class="form-check-label" for="sizeMedium">M</label>-->
+        <!--                        </div>-->
+        <!--                        <div class="form-check form-check-inline">-->
+        <!--                            <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeLarge" value="L">-->
+        <!--                            <label class="form-check-label" for="sizeLarge">L</label>-->
+        <!--                        </div>-->
+        <!--                        <div class="form-check form-check-inline">-->
+        <!--                            <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeXLarge" value="XL">-->
+        <!--                            <label class="form-check-label" for="sizeXLarge">XL</label>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
         <div class="mb-3">
             <label th:for="chatLieu" class="form-label">Chất liệu sản phẩm</label>
-            <input type="number" th:field="*{chatLieu}" class="form-control" placeholder="Nhập chất liệu sản phẩm" required>
+            <input type="text" th:field="*{chatLieu}" class="form-control" placeholder="Nhập chất liệu sản phẩm" required>
         </div>
         <div class="mb-3">
             <label th:for="chiTietSP" class="form-label">Mô tả sản phẩm</label>
@@ -512,40 +509,12 @@
             <label th:for="ngayThemVao">Ngày thêm sản phẩm</label>
             <input type="date" th:for="*{ngayThemVao}" class="form-control" />
         </div>
-
-        <button type="submit" class="btn btn-primary">
-            Thêm
-        </button>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">Save</button>
+        </div>
     </form>
-
-    <!-- Bảng hiển thị sản phẩm -->
-    <h3 class="mt-5">Danh sách sản phẩm</h3>
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Tên sản phẩm</th>
-            <th>Mô tả</th>
-            <th>Giá</th>
-            <th>Hình ảnh</th>
-            <th>Hành động</th>
-        </tr>
-        </thead>
-        <tbody id="productTable">
-        <tr th:each="ctsp : ${ctsp}">
-            <td th:text="${ctsp.IDSP}"></td>
-            <td th:text="${ctsp.tenSP}"></td>
-            <td th:text="${ctsp.chiTietSP}"></td>
-            <td th:text="${ctsp.gia}"></td>
-            <td th:text="${ctsp.anhSP}"></td>
-            <td>
-<!--                <a th:href="@{/editproduct(id=${ctsp.IDSP})}" class="btn btn-primary">Edit</a>-->
-<!--                <a th:href="@{/deletePRD(id=${ctsp.IDSP})}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>-->
-            </td>
-        </tr>
-        </tbody>
-    </table>
 </div>
+
 <!-- Footer -->
 <footer class="footer">
     <div class="container footer__content">

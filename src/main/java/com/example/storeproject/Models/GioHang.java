@@ -5,12 +5,9 @@ import java.math.BigDecimal;
 public class GioHang {
     private String tenSP;
     private int soLuong;
-    private Boolean xoaSP;
     private Boolean themVoucher;
     private BigDecimal gia;
-    private Boolean muaHang;
-    private int idSP;
-
+    private int IDSP;
 
     public String getTenSP() {
         return tenSP;
@@ -28,14 +25,6 @@ public class GioHang {
         this.soLuong = soLuong;
     }
 
-    public Boolean getXoaSP() {
-        return xoaSP;
-    }
-
-    public void setXoaSP(Boolean xoaSP) {
-        this.xoaSP = xoaSP;
-    }
-
     public Boolean getThemVoucher() {
         return themVoucher;
     }
@@ -44,28 +33,20 @@ public class GioHang {
         this.themVoucher = themVoucher;
     }
 
-    public BigDecimal getgia() {
+    public BigDecimal getGia() {
         return gia;
     }
 
-    public void setTongTien(BigDecimal gia) {
+    public void setGia(BigDecimal gia) {
         this.gia = gia;
     }
 
-    public Boolean getMuaHang() {
-        return muaHang;
+    public int getIDSP() {
+        return IDSP;
     }
 
-    public void setMuaHang(Boolean muaHang) {
-        this.muaHang = muaHang;
-    }
-
-    public int getIdSP() {
-        return idSP;
-    }
-
-    public void setIdSP(int idSP) {
-        this.idSP = idSP;
+    public void setIDSP(int IDSP) {
+        this.IDSP = IDSP;
     }
 }
 
