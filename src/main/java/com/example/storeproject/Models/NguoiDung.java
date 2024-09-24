@@ -11,7 +11,7 @@ import java.util.Date;
 public class NguoiDung {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int IDKhachHang;
+    private int idUser;
     private String Ten;
     private Date NgaySinh;
     private String DiaChi;
@@ -20,13 +20,13 @@ public class NguoiDung {
     private String GioiTinh;
     private String PassWord;
     private String UserName;
-    private int IDQuyen;
+    private Long IDQuyen;
 
     public NguoiDung() {
     }
 
-    public NguoiDung(int IDKhachHang, String ten, Date ngaySinh, String diaChi, String SDT, String mail, String gioiTinh, String passWord, String userName, int IDQuyen) {
-        this.IDKhachHang = IDKhachHang;
+    public NguoiDung(int idUser, String ten, Date ngaySinh, String diaChi, String SDT, String mail, String gioiTinh, String passWord, String userName, Long IDQuyen) {
+        this.idUser = idUser;
         Ten = ten;
         NgaySinh = ngaySinh;
         DiaChi = diaChi;
@@ -38,12 +38,12 @@ public class NguoiDung {
         this.IDQuyen = IDQuyen;
     }
 
-    public int getIDKhachHang() {
-        return IDKhachHang;
+    public int getIdUser() {
+        return idUser;
     }
 
-    public void setIDKhachHang(int IDKhachHang) {
-        this.IDKhachHang = IDKhachHang;
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public String getTen() {
@@ -110,11 +110,13 @@ public class NguoiDung {
         UserName = userName;
     }
 
-    public int getIDQuyen() {
+    public Long getIDQuyen() {
         return IDQuyen;
     }
 
-    public void setIDQuyen(int IDQuyen) {
+    public void setIDQuyen(Long IDQuyen) {
         this.IDQuyen = IDQuyen;
     }
+
+
 }

@@ -18,22 +18,16 @@ public class NguoiDungServiceImpl implements NguoiDungService {
     private NguoiDungRepository nguoiDungRepository;
 
     @Override
-    public List<NguoiDung> getAllNguoiDung(){
-        return (List<NguoiDung>) nguoiDungRepository.findAll();
+    public NguoiDung authenticate(String UserName, String PassWord) {
+        NguoiDung nguoiDung = nguoiDungRepository.findByUsername(UserName);
+        if (nguoiDung != null && nguoiDung.getPassWord().equals(PassWord)) {
+            return nguoiDung;
+        }
+        return null;
     }
 
     @Override
-    public void saveNguoiDung(NguoiDung nguoiDung){
-        nguoiDungRepository.save(nguoiDung);
-    }
-
-    @Override
-    public void deleteNguoiDung(Long id){
-        nguoiDungRepository.deleteById(id);
-    }
-
-    @Override
-    public Optional<NguoiDung> findNguoiDungById(Long id){
-        return nguoiDungRepository.findById(id);
+    public Long getNguoiDungquyenId(NguoiDung nguoiDung) {
+        return nguoiDung.getIDQuyen();
     }
 }

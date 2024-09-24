@@ -29,6 +29,16 @@ public class CTSPServiceImpl implements CTSPService {
         chiTietSanPhamRepository.deleteById(id);
     }
 
+//    @Override
+//    public ChiTietSanPham findById(Long id){
+//        return chiTietSanPhamRepository.findById(id).orElse(null);
+//    }
+//
+//    @Override
+//    public List<ChiTietSanPham> findAllByTenspContaining(String tenSP){
+//        return chiTietSanPhamRepository.findAllByTenspContaining(tenSP);
+//    }
+
     @Override
     public Optional<ChiTietSanPham> findChiTietSanPhamById(Long id){
         return chiTietSanPhamRepository.findById(id);

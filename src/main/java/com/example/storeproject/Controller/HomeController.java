@@ -1,7 +1,9 @@
 package com.example.storeproject.Controller;
 
 import com.example.storeproject.Models.ChiTietSanPham;
+import com.example.storeproject.Models.Size;
 import com.example.storeproject.Service.CTSPService;
+import com.example.storeproject.Service.SizeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,9 +18,12 @@ import java.util.Optional;
 public class HomeController {
     @Autowired
     private final CTSPService ctspService;
+    @Autowired
+    private final SizeService sizeService;
 
-    public HomeController(CTSPService ctspService) {
+    public HomeController(CTSPService ctspService, SizeService sizeService) {
         this.ctspService = ctspService;
+        this.sizeService = sizeService;
     }
 
     @RequestMapping("home")
@@ -58,8 +63,16 @@ public class HomeController {
         return "redirect:/cart";
     }
 
-    @RequestMapping("product_detail")
-    public String product_detail(Model model){
+    @RequestMapping("/product_detail")
+    public String product_detail(@RequestParam("id") Long ctspId,Long sizeID, Model model){
+        Optional<ChiTietSanPham> productEdit = ctspService.findChiTietSanPhamById(ctspId);
+        productEdit.ifPresent(ctsp -> model.addAttribute("ctsp", ctsp));
+
+//        List<Size> size = sizeService.getAllSize();
+//        model.addAttribute("size", size);
+
+//        Optional<Size> sizePRD = sizeService.findSizeById();
+//        sizePRD.ifPresent(size -> model.addAttribute("size", size));
         return "product_detail";
     }
 

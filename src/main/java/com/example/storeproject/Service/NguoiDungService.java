@@ -7,11 +7,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface NguoiDungService {
-    List<NguoiDung> getAllNguoiDung();
-
-    void saveNguoiDung(NguoiDung nguoiDung);
-
-    void deleteNguoiDung(Long id);
-
-    Optional<NguoiDung> findNguoiDungById(Long id);
+    NguoiDung authenticate(String UserName, String PassWord);
+    Long getNguoiDungquyenId(NguoiDung nguoiDung);
 }

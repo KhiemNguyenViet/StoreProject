@@ -506,26 +506,27 @@
 
 <!-- Product -->
 <div class="container mt-5 mb-5">
-    <div class="row">
+    <div class="row" th:object="${ctsp}">
         <!-- Hình ảnh sản phẩm -->
         <div class="col-md-6">
-            <img src="https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/z/5/z5467222538110_09daf3473eaa4ccf41d399ac8048bf17.jpg" alt="Product Image" class="img-fluid">
+            <img th:src="*{anhSP}" alt="Product Image" class="img-fluid">
         </div>
 
         <!-- Thông tin sản phẩm -->
         <div class="col-md-6">
-            <h2 style="text-transform: uppercase;font-size: 25px;font-weight: 500;">Áo sơ mi - AS240006D</h2>
-            <p style="text-transform: uppercase;font-size: 15px;color: #666464;font-weight: 500;">Mã sp :AS240006D</p>
+            <h2 th:text="*{tenSP}" style="text-transform: uppercase;font-size: 25px;font-weight: 500;"></h2>
+            <p th:text="'Mã sp :'+ *{IDSP}" style="text-transform: uppercase;font-size: 15px;color: #666464;font-weight: 500;" ></p>
 
-            <p><strong>1.400.000đ</strong></p>
+            <p><strong th:text="*{gia} +' Đ'"></strong></p>
             <!-- Màu sắc -->
-            <div class="mb-3">
-                <label for="color-select" class="form-label"><strong>Màu sắc:</strong></label>
-                <select id="color-select" class="form-select">
-                    <option value="red">Đỏ</option>
-                    <option value="blue">Xanh dương</option>
-                    <option value="green">Xanh lá</option>
-                </select>
+            <div class="mb-3" th:object="${size}">
+                <label  class="form-label"><strong>Kích cỡ :</strong></label>
+<!--                <select id="color-select" class="form-select" th:text="*{IDSize}">-->
+<!--                    <option th:text="*{IDSize}" value="red">Đỏ</option>-->
+<!--                    <option th:text="*{IDSize}" value="blue">Xanh dương</option>-->
+<!--                    <option th:text="*{IDSize}" value="green">Xanh lá</option>-->
+<!--                </select>-->
+                <p th:text="${}"></p>
             </div>
 
 
@@ -534,9 +535,10 @@
             <!-- Mô tả -->
             <span style="border-top: 2px solid #666464;">
                 <p><strong>Mô tả:</strong></p>
-                <p>Áo sơ mi dài tay, kiểu dáng Slim Fit dễ mặc, hợp form dáng.
-                    Màu sắc và kiểu dáng trẻ trung, kiểu dáng hiện đại, dễ phối đồ.
-                    Chất liệu: Knit</p>
+                <p th:text="*{chiTietSP}"></p>
+<!--                <p>Áo sơ mi dài tay, kiểu dáng Slim Fit dễ mặc, hợp form dáng.-->
+<!--                    Màu sắc và kiểu dáng trẻ trung, kiểu dáng hiện đại, dễ phối đồ.-->
+<!--                    Chất liệu: Knit</p>-->
             </span>
 
         </div>
@@ -582,7 +584,6 @@
                                 Hotline: 1900 8079
                                 <br>
                                 8:30 - 19:00 tất cả các ngày trong tuần.
-
                             </strong>
                         </label>
                     </li>

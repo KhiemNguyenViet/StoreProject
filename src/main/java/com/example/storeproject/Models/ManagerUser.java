@@ -9,31 +9,26 @@ import lombok.Getter;
 public class ManagerUser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int IDQuyen;
+    private Long idquyen;
 
-    private String TenQuyen;
+    private String namequyen;
 
     public ManagerUser() {
     }
 
-    public ManagerUser(int IDQuyen, String tenQuyen) {
-        this.IDQuyen = IDQuyen;
-        TenQuyen = tenQuyen;
+    public Long getIdquyen() {
+        return idquyen;
     }
 
-    public int getIDQuyen() {
-        return IDQuyen;
+    public void setIdquyen(Long idquyen) {
+        this.idquyen = idquyen;
     }
 
-    public void setIDQuyen(int IDQuyen) {
-        this.IDQuyen = IDQuyen;
+    public String getNamequyen() {
+        return namequyen;
     }
 
-    public String getTenQuyen() {
-        return TenQuyen;
-    }
-
-    public void setTenQuyen(String tenQuyen) {
-        TenQuyen = tenQuyen;
+    public void setNamequyen(String namequyen) {
+        this.namequyen = namequyen;
     }
 }

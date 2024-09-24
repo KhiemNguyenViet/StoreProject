@@ -12,5 +12,9 @@ public interface CTSPService {
 
     void deleteChiTietSanPham(Long id);
 
+//    ChiTietSanPham findById(Long id);
+//
+//    List<ChiTietSanPham> findAllByTenspContaining(String tenSP);
+
     Optional<ChiTietSanPham> findChiTietSanPhamById(Long id);
 }

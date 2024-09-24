@@ -458,7 +458,7 @@
         <h1>Edit Product</h1>
     </div>
     <form th:object="${ctsp}" th:action="@{saveprd}" method="post">
-        <input type="hidden" th:field="*{IDSP}">
+        <input type="hidden" th:text="*{IDSP}">
         <div class="mb-3">
             <label th:for="tenSP"  >Tên sản phẩm</label>
             <input type="text" th:field="*{tenSP}" class="form-control" placeholder="Nhập tên sản phẩm" required>
