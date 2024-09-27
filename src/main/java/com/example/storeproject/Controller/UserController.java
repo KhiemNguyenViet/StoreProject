@@ -45,9 +45,9 @@ public class UserController {
 
         Long roleId = nguoiDungService.getNguoiDungquyenId(currentUser);
         if (roleId == 1) { // Giả sử 1 là ID quyền của MANAGER
-            return "quanlysp/dashboard"; // Chuyển đến dashboard quản lý
+            return "manager/dashboard"; // Chuyển đến dashboard quản lý
         } else if (roleId == 2) { // Giả sử 2 là ID quyền của CUSTOMER
-            return "home/dashboard"; // Chuyển đến dashboard khách hàng
+            return "customer/dashboard"; // Chuyển đến dashboard khách hàng
         }
         return "home"; // Mặc định
     }

@@ -18,14 +18,14 @@ public class NguoiDung {
     private String SDT;
     private String Mail;
     private String GioiTinh;
-    private String PassWord;
-    private String UserName;
+    private String password;
+    private String username;
     private Long IDQuyen;
 
     public NguoiDung() {
     }
 
-    public NguoiDung(int idUser, String ten, Date ngaySinh, String diaChi, String SDT, String mail, String gioiTinh, String passWord, String userName, Long IDQuyen) {
+    public NguoiDung(int idUser, String ten, Date ngaySinh, String diaChi, String SDT, String mail, String gioiTinh, String password, String username, Long IDQuyen) {
         this.idUser = idUser;
         Ten = ten;
         NgaySinh = ngaySinh;
@@ -33,8 +33,8 @@ public class NguoiDung {
         this.SDT = SDT;
         Mail = mail;
         GioiTinh = gioiTinh;
-        PassWord = passWord;
-        UserName = userName;
+        this.password = password;
+        this.username = username;
         this.IDQuyen = IDQuyen;
     }
 
@@ -94,20 +94,20 @@ public class NguoiDung {
         GioiTinh = gioiTinh;
     }
 
-    public String getPassWord() {
-        return PassWord;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassWord(String passWord) {
-        PassWord = passWord;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getUserName() {
-        return UserName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        UserName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Long getIDQuyen() {
@@ -117,6 +117,4 @@ public class NguoiDung {
     public void setIDQuyen(Long IDQuyen) {
         this.IDQuyen = IDQuyen;
     }
-
-
 }

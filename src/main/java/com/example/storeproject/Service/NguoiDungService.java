@@ -7,6 +7,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface NguoiDungService {
-    NguoiDung authenticate(String UserName, String PassWord);
+    NguoiDung authenticate(String username, String password);
     Long getNguoiDungquyenId(NguoiDung nguoiDung);
 }

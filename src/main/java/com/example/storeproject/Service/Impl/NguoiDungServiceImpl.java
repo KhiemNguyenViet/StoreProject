@@ -20,7 +20,7 @@ public class NguoiDungServiceImpl implements NguoiDungService {
     @Override
     public NguoiDung authenticate(String UserName, String PassWord) {
         NguoiDung nguoiDung = nguoiDungRepository.findByUsername(UserName);
-        if (nguoiDung != null && nguoiDung.getPassWord().equals(PassWord)) {
+        if (nguoiDung != null && nguoiDung.getPassword().equals(PassWord)) {
             return nguoiDung;
         }
         return null;
