@@ -9,22 +9,22 @@ import lombok.Getter;
 public class Size {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int IDSize;
+    private Integer IDSize;
     private String TenSize;
 
     public Size() {
     }
 
-    public Size(int IDSize, String tenSize) {
+    public Size(Integer IDSize, String tenSize) {
         this.IDSize = IDSize;
         TenSize = tenSize;
     }
 
-    public int getIDSize() {
+    public Integer getIDSize() {
         return IDSize;
     }
 
-    public void setIDSize(int IDSize) {
+    public void setIDSize(Integer IDSize) {
         this.IDSize = IDSize;
     }
 

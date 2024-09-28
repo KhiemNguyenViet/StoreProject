@@ -1,7 +1,9 @@
 package com.example.storeproject.Service.Impl;
 
 import com.example.storeproject.Models.ChiTietSanPham;
+import com.example.storeproject.Models.Size;
 import com.example.storeproject.Repository.ChiTietSanPhamRepository;
+import com.example.storeproject.Repository.SizeRepository;
 import com.example.storeproject.Service.CTSPService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,9 @@ import java.util.Optional;
 public class CTSPServiceImpl implements CTSPService {
     @Autowired
     private ChiTietSanPhamRepository chiTietSanPhamRepository;
+
+    @Autowired
+    private SizeRepository sizeRepository;
 
     @Override
     public List<ChiTietSanPham> getAllChiTietSanPham(){
@@ -29,18 +34,14 @@ public class CTSPServiceImpl implements CTSPService {
         chiTietSanPhamRepository.deleteById(id);
     }
 
-//    @Override
-//    public ChiTietSanPham findById(Long id){
-//        return chiTietSanPhamRepository.findById(id).orElse(null);
-//    }
-//
-//    @Override
-//    public List<ChiTietSanPham> findAllByTenspContaining(String tenSP){
-//        return chiTietSanPhamRepository.findAllByTenspContaining(tenSP);
-//    }
 
     @Override
-    public Optional<ChiTietSanPham> findChiTietSanPhamById(Long id){
-        return chiTietSanPhamRepository.findById(id);
+    public ChiTietSanPham findChiTietSanPhamById(Long id) {
+        return chiTietSanPhamRepository.findById(id).orElse(null);
+    }
+
+    public String getSizeName(int id) {
+        Size size = sizeRepository.findByIDSize(id);
+        return size != null ? size.getTenSize() : "Không xác định";
     }
 }

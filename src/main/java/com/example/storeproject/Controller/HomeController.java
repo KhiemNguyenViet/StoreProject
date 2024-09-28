@@ -64,15 +64,16 @@ public class HomeController {
     }
 
     @RequestMapping("/product_detail")
-    public String product_detail(@RequestParam("id") Long ctspId,Long sizeID, Model model){
-        Optional<ChiTietSanPham> productEdit = ctspService.findChiTietSanPhamById(ctspId);
-        productEdit.ifPresent(ctsp -> model.addAttribute("ctsp", ctsp));
+    public String product_detail(@RequestParam("id") Long id,Long sizeID, Model model){
+        ChiTietSanPham ctsp = ctspService.findChiTietSanPhamById(id);
+        if (ctsp != null) {
+            String size = ctspService.getSizeName(ctsp.getIDSize());
+            model.addAttribute("ctsp", ctsp);
+            model.addAttribute("size", size); // Thêm tên size vào model
+        } else {
+            model.addAttribute("error", "Sản phẩm không tồn tại");
+        }
 
-//        List<Size> size = sizeService.getAllSize();
-//        model.addAttribute("size", size);
-
-//        Optional<Size> sizePRD = sizeService.findSizeById();
-//        sizePRD.ifPresent(size -> model.addAttribute("size", size));
         return "product_detail";
     }
 
@@ -103,8 +104,13 @@ public class HomeController {
 
     @RequestMapping(value = "/editprd", method = RequestMethod.GET)
     public String editProduct(@RequestParam("id") Long ctspId, Model model) {
-        Optional<ChiTietSanPham> productEdit = ctspService.findChiTietSanPhamById(ctspId);
-        productEdit.ifPresent(ctsp -> model.addAttribute("ctsp", ctsp));
+        ChiTietSanPham productEdit = ctspService.findChiTietSanPhamById(ctspId);
+        if (productEdit != null) {
+            model.addAttribute("ctsp", productEdit);
+        } else {
+            // Xử lý khi không tìm thấy sản phẩm (có thể redirect hoặc thông báo lỗi)
+            model.addAttribute("error", "Sản phẩm không tồn tại");
+        }
         return "editProduct";
     }
 

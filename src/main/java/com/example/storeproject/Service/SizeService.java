@@ -11,7 +11,7 @@ public interface SizeService {
 
     void saveSize(Size size);
 
-    void deleteSize(Long id);
+    void deleteSize(Integer IDSize);
 
-    Optional<Size> findSizeById(Long id);
+    Size findSizeById(Integer id);
 }

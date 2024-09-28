@@ -27,12 +27,12 @@ public class SizeServiceImpl implements SizeService {
     }
 
     @Override
-    public void deleteSize(Long id){
-        sizeRepository.deleteById(id);
+    public void deleteSize(Integer IDSize){
+        sizeRepository.deleteById(IDSize);
     }
 
     @Override
-    public Optional<Size> findSizeById(Long id){
-        return sizeRepository.findById(id);
+    public Size findSizeById(Integer IDSize){
+        return sizeRepository.findById(IDSize).orElse(null);
     }
 }
