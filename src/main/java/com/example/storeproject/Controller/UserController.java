@@ -25,8 +25,8 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String login() {
-        return "login"; // Trang đăng nhập
+    public String showLoginForm() {
+        return "login"; // Tên file HTML cho giao diện đăng nhập
     }
 
 
