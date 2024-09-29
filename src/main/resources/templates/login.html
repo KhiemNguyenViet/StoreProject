@@ -511,19 +511,14 @@
                 <p class="login-text">Nếu bạn đã có tài khoản, hãy đăng nhập để tích lũy điểm thành viên và nhận được những ưu đãi tốt hơn!</p>
             </div>
 
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="loginEmail">Tài Khoản</label>
-                    <input type="email" class="form-control" id="loginEmail">
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword">Mật khẩu</label>
-                    <input type="password" class="form-control" id="loginPassword">
-                </div>
-                <button type="submit" id="btn-login" class="btn btn-primary btn-block"><a href="">Đăng Nhập</a></button>
+            <form action="/user/login" method="post">
+                <label for="username">Tên người dùng:</label>
+                <input type="text" id="username" name="username" required><br>
 
-                <button type="submit" id="btn-signup" class="btn btn-primary btn-block" href="signup"><a href="signup">Tạo Tài Khoản</a></button>
+                <label for="password">Mật khẩu:</label>
+                <input type="password" id="password" name="password" required><br>
 
+                <input type="submit" value="Đăng Nhập">
             </form>
         </div>
 

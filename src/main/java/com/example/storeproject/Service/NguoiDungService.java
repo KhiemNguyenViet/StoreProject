@@ -9,4 +9,6 @@ import java.util.Optional;
 public interface NguoiDungService {
     NguoiDung authenticate(String username, String password);
     Long getNguoiDungquyenId(NguoiDung nguoiDung);
+    void save(NguoiDung nguoiDung);
+
 }

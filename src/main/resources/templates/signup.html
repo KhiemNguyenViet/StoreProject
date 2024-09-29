@@ -512,48 +512,35 @@
                 <p class="login-text">Hãy đăng ký ngay để tích lũy điểm thành viên và nhận được những ưu đãi tốt hơn!</p>
             </div>
 
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="name">Tên</label>
-                    <input type="email" class="form-control" id="name">
-                </div>
+            <form action="/signupto" method="post">
+                <label for="username">Tên Đăng Nhập:</label>
+                <input type="text" id="username" name="username" required>
 
-                <div class="form-group">
-                    <label for="dob">Ngày Sinh</label>
-                    <input type="date" class="form-control" id="dob" name="dob" placeholder="Chọn ngày">
-                </div>
+                <label for="password">Mật Khẩu:</label>
+                <input type="password" id="password" name="password" required>
 
-                <div class="form-group">
-                    <label for="gender">Giới Tính</label>
-                    <select class="form-control" id="gender" name="gender">
-                        <option value="male">Nam</option>
-                        <option value="female">Nữ</option>
-                        <option value="other">Khác</option>
-                    </select>
-                </div>
+                <label for="ten">Tên:</label>
+                <input type="text" id="ten" name="ten" required>
 
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email của bạn">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Số Điện Thoại</label>
-                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="Số điện thoại">
-                </div>
+                <label for="ngaySinh">Ngày Sinh:</label>
+                <input type="date" id="ngaySinh" name="ngaySinh" required>
 
-                <div class="form-group">
-                    <label for="loginPassword">Mật khẩu</label>
-                    <input type="password" class="form-control" id="loginPassword1" placeholder="">
-                </div>
+                <label for="diaChi">Địa Chỉ:</label>
+                <input type="text" id="diaChi" name="diaChi" required>
 
-                <div class="form-group">
-                    <label for="loginPassword">Nhập lại Mật Khẩu </label>
-                    <input type="password" class="form-control" id="loginPassword">
-                </div>
-                <button type="submit" id="btn-login" class="btn btn-primary btn-block"><a href="">Đăng Ký</a></button>
+                <label for="sdt">Số Điện Thoại:</label>
+                <input type="text" id="sdt" name="SDT" required>
 
+                <label for="mail">Email:</label>
+                <input type="email" id="mail" name="Mail" required>
 
+                <label for="gioiTinh">Giới Tính:</label>
+                <select id="GioiTinh" name="GioiTinh">
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                </select><br>
 
+                <button type="submit">Đăng Ký</button>
             </form>
         </div>
 
