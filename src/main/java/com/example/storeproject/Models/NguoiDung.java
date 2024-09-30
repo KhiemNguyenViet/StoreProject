@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Getter
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class NguoiDung {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

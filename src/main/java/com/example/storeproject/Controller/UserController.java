@@ -1,8 +1,10 @@
 package com.example.storeproject.Controller;
 
 
+import com.example.storeproject.Models.ChiTietSanPham;
 import com.example.storeproject.Models.ManagerUser;
 import com.example.storeproject.Models.NguoiDung;
+import com.example.storeproject.Service.CTSPService;
 import com.example.storeproject.Service.ManagerUserService;
 import com.example.storeproject.Service.NguoiDungService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +15,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/user")
 public class UserController {
     @Autowired
     private NguoiDungService nguoiDungService;
 
-    @GetMapping("/")
+    @Autowired
+    private CTSPService ctspService;
+
+    @GetMapping("/home")
     public String home() {
         return "home"; // Trang chủ
     }
@@ -27,6 +34,13 @@ public class UserController {
     @GetMapping("/login")
     public String showLoginForm() {
         return "login"; // Tên file HTML cho giao diện đăng nhập
+    }
+
+    @RequestMapping("store")
+    public String store(Model model){
+        List<ChiTietSanPham> ctsp = ctspService.getAllChiTietSanPham();
+        model.addAttribute("ctsp",ctsp);
+        return "store";
     }
 
 

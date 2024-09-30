@@ -25,12 +25,12 @@ public class LoaiServiceImpl implements LoaiService {
     }
 
     @Override
-    public void deleteLoai(Long id){
-        loaiRepository.deleteById(id);
+    public void deleteLoai(Integer IDLoai){
+        loaiRepository.deleteById(IDLoai);
     }
 
     @Override
-    public Optional<LoaiSP> findLoaiSPById(Long id){
-        return loaiRepository.findById(id);
+    public LoaiSP findLoaiSPById(Integer IDLoai){
+        return loaiRepository.findById(IDLoai).orElse(null);
     }
 }

@@ -11,7 +11,7 @@ public interface LoaiService {
 
     void saveLoai(LoaiSP loaiSP);
 
-    void deleteLoai(Long id);
+    void deleteLoai(Integer IDLoai);
 
-    Optional<LoaiSP> findLoaiSPById(Long id);
+    LoaiSP findLoaiSPById(Integer id);
 }
