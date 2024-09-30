@@ -456,6 +456,8 @@
 </div>
     <!-- Bảng hiển thị sản phẩm -->
     <h3 class="mt-5">Danh sách sản phẩm</h3>
+<a  href="addprd" class="btn btn-success" style="    margin: 10px 11px 20px 0;
+    float: right;">Add Product</a>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -471,17 +473,24 @@
         <tr th:each="ctsp : ${ctsp}">
             <td th:text="${ctsp.IDSP}"></td>
             <td th:text="${ctsp.tenSP}"></td>
-            <td th:text="${ctsp.chiTietSP}"></td>
+            <td style="    font-size: 16px;
+    /* line-height: 16px; */
+    height: 60px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;" th:text="${ctsp.chiTietSP}"></td>
             <td th:text="${ctsp.gia}"></td>
             <td th:text="${ctsp.anhSP}"></td>
-            <td>
-                <a href="addprd" class="btn btn-success">Add Product</a>
+            <td class="btn_edit_delete" style="display: flex">
                 <a th:href="@{/editprd(id=${ctsp.IDSP})}" class="btn btn-primary">Edit</a>
                 <a th:href="@{/deleteprd(id=${ctsp.IDSP})}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
             </td>
         </tr>
         </tbody>
     </table>
+
 </div>
 <!-- Footer -->
 <footer class="footer">
