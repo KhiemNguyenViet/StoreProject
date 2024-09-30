@@ -2,17 +2,19 @@ package com.example.storeproject.Models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
 @Getter
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class NguoiDung {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idUser;
     private String Ten;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date NgaySinh;
     private String DiaChi;
     private String SDT;

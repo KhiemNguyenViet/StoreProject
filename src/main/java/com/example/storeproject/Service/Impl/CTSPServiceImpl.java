@@ -1,8 +1,10 @@
 package com.example.storeproject.Service.Impl;
 
 import com.example.storeproject.Models.ChiTietSanPham;
+import com.example.storeproject.Models.LoaiSP;
 import com.example.storeproject.Models.Size;
 import com.example.storeproject.Repository.ChiTietSanPhamRepository;
+import com.example.storeproject.Repository.LoaiRepository;
 import com.example.storeproject.Repository.SizeRepository;
 import com.example.storeproject.Service.CTSPService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,9 @@ public class CTSPServiceImpl implements CTSPService {
 
     @Autowired
     private SizeRepository sizeRepository;
+
+    @Autowired
+    private LoaiRepository loaiRepository;
 
     @Override
     public List<ChiTietSanPham> getAllChiTietSanPham(){
@@ -43,5 +48,10 @@ public class CTSPServiceImpl implements CTSPService {
     public String getSizeName(int id) {
         Size size = sizeRepository.findByIDSize(id);
         return size != null ? size.getTenSize() : "Không xác định";
+    }
+
+    public String getLoaiName(int id) {
+        LoaiSP loaiSP = loaiRepository.findByIDLoai(id);
+        return loaiSP != null ? loaiSP.getTenLoai() : "Không xác định";
     }
 }

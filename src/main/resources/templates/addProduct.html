@@ -471,28 +471,30 @@
         <!--            <input type="text" class="form-control" id="productName" placeholder="Nhập màu sắc sản phẩm" required>-->
         <!--        </div>-->
 
-                 Kích cỡ
-<!--                <div class="mb-3">-->
-<!--                    <label class="form-label" th:for="IDSize">Kích cỡ</label>-->
-<!--                    <div>-->
-<!--                        <div class="form-check form-check-inline">-->
-<!--                            <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeSmall" value="S">-->
-<!--                            <label class="form-check-label" for="sizeSmall">S</label>-->
-<!--                        </div>-->
-<!--                        <div class="form-check form-check-inline">-->
-<!--                            <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeMedium" value="M">-->
-<!--                            <label class="form-check-label" for="sizeMedium">M</label>-->
-<!--                        </div>-->
-<!--                        <div class="form-check form-check-inline">-->
-<!--                            <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeLarge" value="L">-->
-<!--                            <label class="form-check-label" for="sizeLarge">L</label>-->
-<!--                        </div>-->
-<!--                        <div class="form-check form-check-inline">-->
-<!--                            <input class="form-check-input" th:field="*{IDSize}" type="radio" name="size" id="sizeXLarge" value="XL">-->
-<!--                            <label class="form-check-label" for="sizeXLarge">XL</label>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+        <!--Kích cỡ-->
+        <div class="mb-3">
+            <div class="mb-3">
+                <label class="form-label" th:for="IDLoai">Loại sản phẩm :</label>
+                <select id="IDLoai" th:field="*{IDLoai}">
+                    <option value="" disabled selected>Chọn loại sản phẩm :</option>
+                    <option th:each="loaisp : ${loaisp}"
+                            th:value="${loaisp.IDLoai}"
+                            th:text="${loaisp.TenLoai}"></option>
+                </select><br>
+            </div>
+        </div>
+                <!--Kích cỡ-->
+                <div class="mb-3">
+                        <div class="mb-3">
+                            <label class="form-label" th:for="IDSize">Kích cỡ</label>
+                            <select id="IDSize" name="tenSize">
+                                <option value="1">S</option>
+                                <option value="2">M</option>
+                                <option value="3">L</option>
+                                <option value="4">XL</option>
+                            </select><br>
+                        </div>
+                </div>
                 <div class="mb-3">
                     <label th:for="chatLieu" class="form-label">Chất liệu sản phẩm</label>
                     <input type="text" th:field="*{chatLieu}" class="form-control" placeholder="Nhập chất liệu sản phẩm" required>

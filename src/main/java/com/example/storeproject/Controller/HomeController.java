@@ -3,6 +3,7 @@ package com.example.storeproject.Controller;
 import com.example.storeproject.Models.ChiTietSanPham;
 import com.example.storeproject.Models.Size;
 import com.example.storeproject.Service.CTSPService;
+import com.example.storeproject.Service.LoaiService;
 import com.example.storeproject.Service.SizeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,10 +21,13 @@ public class HomeController {
     private final CTSPService ctspService;
     @Autowired
     private final SizeService sizeService;
+    @Autowired
+    private final LoaiService loaiService;
 
-    public HomeController(CTSPService ctspService, SizeService sizeService) {
+    public HomeController(CTSPService ctspService, SizeService sizeService, LoaiService loaiService) {
         this.ctspService = ctspService;
         this.sizeService = sizeService;
+        this.loaiService = loaiService;
     }
 
     @RequestMapping("home")
@@ -68,8 +72,10 @@ public class HomeController {
         ChiTietSanPham ctsp = ctspService.findChiTietSanPhamById(id);
         if (ctsp != null) {
             String size = ctspService.getSizeName(ctsp.getIDSize());
+            String loaisp = ctspService.getLoaiName(ctsp.getIDLoai());
             model.addAttribute("ctsp", ctsp);
             model.addAttribute("size", size); // Thêm tên size vào model
+            model.addAttribute("loaisp", loaisp);
         } else {
             model.addAttribute("error", "Sản phẩm không tồn tại");
         }

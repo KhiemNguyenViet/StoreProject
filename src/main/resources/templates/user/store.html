@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Owen Sign Up Website</title>
+    <title>Owen Login Website</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="./signup.css">
+    <link rel="stylesheet" href=".css/store.css">
     <!-- Custom CSS -->
     <style>
 
@@ -112,7 +112,6 @@
             animation: fadeIn ease-in 0.2s;
             display: none;
         }
-
         .nav-item-user-menu::before {
             position: absolute;
             content: "";
@@ -212,8 +211,8 @@
             position: absolute;
             width: 120px;
             height: 40px;
-            top: 210px;
-            right: 70px;
+            top: 40%;
+            right: 20%;
             background-color: #fff;
             color: #000;
             border: none;
@@ -255,7 +254,43 @@
             font-weight: 600;
         }
 
+
+        /* Category */
+
+
+        .banner-img {
+            background-size: cover;
+            width: 100%;
+            background-repeat: no-repeat;
+        }
+
+        .list-group-item {
+            padding: 5px 0;
+            border: none;
+        }
+
+        .list-group-item-type {
+            font-weight: 500;
+        }
+
+        .list-group-link{
+            color: #656565;
+
+        }
+
+        .list-group-link:hover {
+            color: #c9ae63;
+            text-decoration: none;
+        }
+
+
+
+        .page-link {
+            color: #000;
+        }
+
         /* Navigation */
+
 
         .navigation-header-list {
             display: flex;
@@ -285,10 +320,6 @@
         .navigation-header-link:hover {
             color: #8a8a8f;
             cursor: pointer;
-        }
-
-        .form-group {
-            height: 50px;
         }
 
         .form-group > label {
@@ -497,58 +528,139 @@
 <div class="navigation-header">
     <ul class="navigation-header-list">
         <li class="navigation-header-item"><a class="navigation-header-link" href="home" title="Trang chủ">Trang chủ</a></li>
-        <li class="navigation-header-item">Tài khoản</li>
+        <li class="navigation-header-item">Cửa hàng</li>
     </ul>
 </div>
 
 </div>
 
-<!-- Form Login -->
-<div class="container py-5">
+
+<!-- Category -->
+<div style="margin-bottom: 50px;" class="container mt-5">
     <div class="row">
-        <div class="col-md-6">
-            <div class="form-text">
-                <h4 class="login-title">TẠO TÀI KHOẢN</h4>
-                <p class="login-text">Hãy đăng ký ngay để tích lũy điểm thành viên và nhận được những ưu đãi tốt hơn!</p>
+
+        <!-- Banner -->
+
+        <img style="background-size: cover; width: 100%; background-repeat: no-repeat;" src="https://owen.vn/media/catalog/category/hang_moi_ve.jpg" alt="">
+
+        <div class="col-md-2 category-sidebar mt-5">
+            <h4>Danh Mục</h4>
+            <ul class="list-group">
+                <li id="Ao" class="list-group-item list-group-item-type">Áo</li>
+
+                <li class="list-group-item"><a href="" class="list-group-link">Áo Polo</a></li>
+                <li class="list-group-item"><a href="" class="list-group-link">Áo Sơ Mi</a></li>
+                <li class="list-group-item"><a href="" class="list-group-link">Áo Blazer</a></li>
+
+
+                <li id="Quan" class="list-group-item list-group-item-type">Quần</li>
+
+                <li class="list-group-item"><a href="" class="list-group-link">Quần Short</a></li>
+                <li class="list-group-item"><a href="" class="list-group-link">Quần Tây</a></li>
+                <li class="list-group-item"><a href="" class="list-group-link">Quần Khaki</a></li>
+
+
+                <li id="Phukien" class="list-group-item list-group-item-type">Phụ kiện</li>
+
+                <li class="list-group-item"><a href="" class="list-group-link">Tất</a></li>
+                <li class="list-group-item"><a href="" class="list-group-link">Dây lưng</a></li>
+                <li class="list-group-item"><a href="" class="list-group-link">Ví da</a></li>
+
+
+                <li id="Banchay" class="list-group-item list-group-item-type">Sản phẩm bán chạy</li>
+
+                <li class="list-group-item"><a href="" class="list-group-link">Áo Sơ Mi</a></li>
+                <li class="list-group-item"><a href="" class="list-group-link">Ví Da</a></li>
+                <li class="list-group-item"><a href="" class="list-group-link">Quần Tây</a></li>
+
+
+            </ul>
+        </div>
+
+        <!-- Product -->
+        <div class="col-md-10 product-gallery mt-5">
+<!--            <div class="btn-edit-product" style="position: relative;">-->
+<!--                <a href="quanlysp" >-->
+<!--                    <button class="btn btn-edit" style="background-color: #c5c2c2;position: absolute;right: 0;bottom: 6px;height: 30px;line-height: 15px;" >-->
+<!--                        <i class="fa-solid fa-wrench"></i>-->
+<!--                        Quản lý sản phẩm-->
+<!--                    </button>-->
+<!--                </a>-->
+<!--            </div>-->
+            <div class="row">
+                <!-- Sản phẩm 1 -->
+                <div class="col-md-3">
+                    <div class="card product-card" th:each="ctsp : ${ctsp}">
+                        <div class="cart-btn-img">
+                            <img th:src="${ctsp.anhSP}" class="card-img-top" alt="Product 1">
+                            <a href="product_detail" th:href="@{/product_detail(id=${ctsp.IDSP})}" class="cart-buy btn btn-primary">Mua ngay</a>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title" th:text="${ctsp.tenSP}"></h6>
+                            <p class="card-text" th:text="${ctsp.gia} + ' Đ'"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card product-card" th:each="ctsp : ${ctsp}">
+                        <div class="cart-btn-img">
+                            <img th:src="${ctsp.anhSP}" class="card-img-top" alt="Product 1">
+                            <a href="product_detail" class="cart-buy btn btn-primary">Mua ngay</a>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title" th:text="${ctsp.tenSP}"></h6>
+                            <p class="card-text" th:text="${ctsp.gia} + ' Đ'"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card product-card" th:each="ctsp : ${ctsp}">
+                        <div class="cart-btn-img">
+                            <img th:src="${ctsp.anhSP}" class="card-img-top" alt="Product 1">
+                            <a href="product_detail" class="cart-buy btn btn-primary">Mua ngay</a>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title" th:text="${ctsp.tenSP}"></h6>
+                            <p class="card-text" th:text="${ctsp.gia} + ' Đ'"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card product-card" th:each="ctsp : ${ctsp}">
+                        <div class="cart-btn-img">
+                            <img th:src="${ctsp.anhSP}" class="card-img-top" alt="Product 1">
+                            <a href="product_detail" class="cart-buy btn btn-primary">Mua ngay</a>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title" th:text="${ctsp.tenSP}"></h6>
+                            <p class="card-text" th:text="${ctsp.gia} + ' Đ'"></p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-            <form action="/user/signup" method="post">
-                <label for="username">Tên Đăng Nhập:</label>
-                <input type="text" id="username" name="username" required>
-
-                <label for="password">Mật Khẩu:</label>
-                <input type="password" id="password" name="password" required>
-
-                <label for="ten">Tên:</label>
-                <input type="text" id="ten" name="ten" required>
-
-                <label for="ngaySinh">Ngày Sinh:</label>
-                <input type="date" id="ngaySinh" name="ngaySinh" required>
-
-                <label for="diaChi">Địa Chỉ:</label>
-                <input type="text" id="diaChi" name="diaChi" required>
-
-                <label for="sdt">Số Điện Thoại:</label>
-                <input type="text" id="sdt" name="SDT" required>
-
-                <label for="mail">Email:</label>
-                <input type="email" id="mail" name="Mail" required>
-
-                <label for="gioiTinh">Giới Tính:</label>
-                <select id="GioiTinh" name="GioiTinh">
-                    <option value="Nam">Nam</option>
-                    <option value="Nữ">Nữ</option>
-                </select><br>
-
-                <button type="submit">Đăng Ký</button>
-            </form>
+            <!-- Phân trang -->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center mt-4">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">
+                            <i class="fa-solid fa-angle-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-
-
-        <div class="col-md-6">
-            <a href=""><img style="width: 100%;" src="https://owen.cdn.vccloud.vn/media/amasty/ampromobanners/OWEN_1_.jpg" alt=""></a>
-        </div>
-
     </div>
 </div>
 <!-- Footer -->
@@ -572,7 +684,7 @@
                     </li>
 
                     <li class="footer-item">
-                        <label  class="footer-item-text">
+                        <label class="footer-item-text">
                             <strong>VP Phía Bắc:</strong>
                             48 Phố Tố Hữu, Trung Văn, Nam Từ Liêm, Hà Nội.
 
@@ -638,7 +750,6 @@
                     <li class="footer-item">
                         <a href="" class="footer-item__link">Quy định đổi hàng</a>
                     </li>
-
                     <li class="footer-item">
                         <a href="" class="footer-item__link">Hướng dẫn mua hàng</a>
                     </li>
@@ -672,6 +783,7 @@
                     <li class="footer-item">
                         <a href="" class="footer-item__link"><img src="	https://owen.cdn.vccloud.vn/static/version1724551346/frontend/Owen/owen2021/vi_VN/images/pay.png" alt=""></a>
                     </li>
+
                     <li class="footer-item">
                         <a href="" class="footer-item__link"><img src="https://owen.cdn.vccloud.vn/static/version1724551346/frontend/Owen/owen2021/vi_VN/images/vertify.png" alt=""></a>
                     </li>

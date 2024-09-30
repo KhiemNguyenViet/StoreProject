@@ -15,4 +15,6 @@ public interface CTSPService {
     ChiTietSanPham findChiTietSanPhamById(Long id);
 
     String getSizeName(int idSize);
+
+    String getLoaiName(int idLoai);
 }

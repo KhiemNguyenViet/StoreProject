@@ -5,5 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface LoaiRepository extends CrudRepository<LoaiSP,Long> {
+public interface LoaiRepository extends CrudRepository<LoaiSP,Integer> {
+    LoaiSP findByIDLoai(int IDLoai);
 }

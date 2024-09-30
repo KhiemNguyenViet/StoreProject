@@ -9,22 +9,23 @@ import lombok.Getter;
 public class LoaiSP {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int IDLoai;
+    private Integer IDLoai;
     private String TenLoai;
 
     public LoaiSP() {
     }
 
-    public LoaiSP(int IDLoai, String tenLoai) {
+    public LoaiSP(Integer IDLoai, String tenLoai) {
         this.IDLoai = IDLoai;
         TenLoai = tenLoai;
     }
 
-    public int getIDLoai() {
+
+    public Integer getIDLoai() {
         return IDLoai;
     }
 
-    public void setIDLoai(int IDLoai) {
+    public void setIDLoai(Integer IDLoai) {
         this.IDLoai = IDLoai;
     }
 
