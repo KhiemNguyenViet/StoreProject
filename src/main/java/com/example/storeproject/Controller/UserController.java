@@ -38,7 +38,7 @@ public class UserController {
 
     @RequestMapping("store")
     public String store(Model model){
-        List<ChiTietSanPham> ctsp = ctspService.getAllChiTietSanPham();
+        List<ChiTietSanPham> ctsp = ctspService.getAllProducts();
         model.addAttribute("ctsp",ctsp);
         return "store";
     }

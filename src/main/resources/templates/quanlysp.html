@@ -456,7 +456,7 @@
 </div>
     <!-- Bảng hiển thị sản phẩm -->
     <h3 class="mt-5">Danh sách sản phẩm</h3>
-<a  href="addprd" class="btn btn-success" style="    margin: 10px 11px 20px 0;
+<a  href="add" class="btn btn-success" style="    margin: 10px 11px 20px 0;
     float: right;">Add Product</a>
     <table class="table table-bordered">
         <thead>
@@ -484,8 +484,8 @@
             <td th:text="${ctsp.gia}"></td>
             <td th:text="${ctsp.anhSP}"></td>
             <td class="btn_edit_delete" style="display: flex">
-                <a th:href="@{/editprd(id=${ctsp.IDSP})}" class="btn btn-primary">Edit</a>
-                <a th:href="@{/deleteprd(id=${ctsp.IDSP})}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                <a th:href="@{/edit/{id}(id=${ctsp.IDSP})}" class="btn btn-primary">Edit</a>
+                <a th:href="@{/delete/{id}(id=${ctsp.IDSP})}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
             </td>
         </tr>
         </tbody>
