@@ -1,16 +1,8 @@
 package com.example.storeproject.Controller;
 
-import com.example.storeproject.Models.ChiTietSanPham;
-import com.example.storeproject.Models.KhuyenMai;
-import com.example.storeproject.Models.LoaiSP;
-import com.example.storeproject.Models.Size;
-import com.example.storeproject.Service.CTSPService;
-import com.example.storeproject.Service.KhuyenMaiService;
-import com.example.storeproject.Service.LoaiService;
-import com.example.storeproject.Service.SizeService;
+import com.example.storeproject.Models.*;
+import com.example.storeproject.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -27,12 +19,15 @@ public class HomeController {
     private final LoaiService loaiService;
     @Autowired
     private final KhuyenMaiService khuyenMaiService;
+    @Autowired
+    private final GioHangService gioHangService;
 
-    public HomeController(CTSPService ctspService, SizeService sizeService, LoaiService loaiService, KhuyenMaiService khuyenMaiService) {
+    public HomeController(CTSPService ctspService, SizeService sizeService, LoaiService loaiService, KhuyenMaiService khuyenMaiService, GioHangService gioHangService) {
         this.ctspService = ctspService;
         this.sizeService = sizeService;
         this.loaiService = loaiService;
         this.khuyenMaiService = khuyenMaiService;
+        this.gioHangService = gioHangService;
     }
 
     @RequestMapping("home")
@@ -59,18 +54,27 @@ public class HomeController {
         return "store";
     }
 
-    @RequestMapping("cart")
-    public String cart(Model model){
-        List<ChiTietSanPham> ctsp = ctspService.getAllProducts();
-        model.addAttribute("ctsp",ctsp);
-        return "cart";
-    }
-
     @RequestMapping("/quanlysp")
     public String quanlysp( Model model){
         List<ChiTietSanPham> ctsp = ctspService.getAllProducts();
         model.addAttribute("ctsp", ctsp);
         return "quanlysp";
+    }
+
+    @RequestMapping("/product_detail")
+    public String product_detail( @RequestParam int id, Model model){
+        ChiTietSanPham ctsp = ctspService.getProductById(id);
+        model.addAttribute("ctsp", ctsp);
+
+        String size = ctsp.getSize() != null ? ctsp.getSize().getTenSize() : "Không xác định";
+        model.addAttribute("size", size);
+
+//        String size = ctspService.getSizeName(id);
+//        model.addAttribute("size", size);
+
+        String loaisp = ctspService.getLoaiName(id);
+        model.addAttribute("loaisp", loaisp);
+        return "product_detail";
     }
 
 //    @RequestMapping(value = "addprd")

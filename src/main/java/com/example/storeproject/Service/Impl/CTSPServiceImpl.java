@@ -29,16 +29,6 @@ public class CTSPServiceImpl implements CTSPService {
         chiTietSanPhamRepository.save(product);
     }
 
-    @Override
-    public ChiTietSanPham updateProduct(int id, ChiTietSanPham product) {
-        // Kiểm tra xem sản phẩm có tồn tại không
-        if (chiTietSanPhamRepository.existsById(id)) {
-            product.setIDSP(id);
-            return chiTietSanPhamRepository.save(product);
-        } else {
-            throw new RuntimeException("Sản phẩm không tồn tại");
-        }
-    }
 
     @Override
     public void deleteProduct(int id) {
@@ -56,13 +46,13 @@ public class CTSPServiceImpl implements CTSPService {
         return chiTietSanPhamRepository.findById(id).orElse(null);
     }
 
-//    public String getSizeName(int id) {
-//        Size size = sizeRepository.findByIDSize(id);
-//        return size != null ? size.getTenSize() : "Không xác định";
-//    }
-//
-//    public String getLoaiName(int id) {
-//        LoaiSP loaiSP = loaiRepository.findByIDLoai(id);
-//        return loaiSP != null ? loaiSP.getTenLoai() : "Không xác định";
-//    }
+    public String getSizeName(int IDSize) {
+        Size size = sizeRepository.findSizeByIDSize(IDSize);
+        return size != null ? size.getTenSize() : "Không xác định";
+    }
+
+    public String getLoaiName(int IDLoai) {
+        LoaiSP loaiSP = loaiRepository.findLoaiSPByIDLoai(IDLoai);
+        return loaiSP != null ? loaiSP.getTenLoai() : "Không xác định";
+    }
 }

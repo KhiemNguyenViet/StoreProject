@@ -9,4 +9,5 @@ import java.util.List;
 
 @Repository
 public interface ChiTietSanPhamRepository extends JpaRepository<ChiTietSanPham, Integer> {
+    ChiTietSanPham findByIDSP (int IDSP);
 }

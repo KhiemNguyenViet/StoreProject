@@ -506,8 +506,9 @@
 
 <!-- Product -->
 <div class="container mt-5 mb-5">
-    <div class="row" th:object="${ctsp}">
+    <div class="row" th:object="${ctsp}" >
         <!-- Hình ảnh sản phẩm -->
+        <p>IDSP: <span th:text="${ctsp.IDSP}"></span></p>
         <div class="col-md-6">
             <img th:src="*{anhSP}" alt="Product Image" class="img-fluid">
         </div>
@@ -531,7 +532,11 @@
 
 
             <!-- Nút thêm vào giỏ hàng -->
-            <button type="submit" id="btn-login" class="btn btn-primary btn-block mb-3"><a href="cart">THÊM VÀO GIỎ HÀNG</a></button>
+            <form th:action="@{/addCart}" method="post">
+                <input type="hidden" name="IDSP" th:value="${ctsp.IDSP}"/>
+                <input type="number" name="soLuong" min="1" value="1"/>
+                <button type="submit" id="btn-login" class="btn btn-primary btn-block mb-3">THÊM VÀO GIỎ HÀNG</button>
+            </form>
             <!-- Mô tả -->
             <span style="border-top: 2px solid #666464;">
                 <p><strong>Mô tả:</strong></p>
