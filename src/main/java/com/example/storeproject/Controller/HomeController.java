@@ -54,6 +54,11 @@ public class HomeController {
         return "store";
     }
 
+    @RequestMapping("/quanlytong")
+    public String quanlytong( Model model){
+        return "quanlytong";
+    }
+
     @RequestMapping("/quanlysp")
     public String quanlysp( Model model){
         List<ChiTietSanPham> ctsp = ctspService.getAllProducts();

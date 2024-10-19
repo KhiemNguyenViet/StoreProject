@@ -4,7 +4,6 @@ import com.example.storeproject.Models.ChiTietSanPham;
 import com.example.storeproject.Models.LoaiSP;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface LoaiService {
     List<LoaiSP> getAllLoaiSP();
@@ -13,5 +12,5 @@ public interface LoaiService {
 
     void deleteLoai(Integer IDLoai);
 
-    LoaiSP findLoaiSPById(Integer id);
+    LoaiSP findLoaiSPById(Integer IDLoai);
 }

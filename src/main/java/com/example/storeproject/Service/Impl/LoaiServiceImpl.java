@@ -11,26 +11,28 @@ import java.util.Optional;
 
 @Service
 public class LoaiServiceImpl implements LoaiService {
+
     @Autowired
     private LoaiRepository loaiRepository;
 
     @Override
-    public List<LoaiSP> getAllLoaiSP(){
-        return (List<LoaiSP>) loaiRepository.findAll();
+    public List<LoaiSP> getAllLoaiSP() {
+        return loaiRepository.findAll();
     }
 
     @Override
-    public void saveLoai(LoaiSP loaiSP){
+    public void saveLoai(LoaiSP loaiSP) {
         loaiRepository.save(loaiSP);
     }
 
     @Override
-    public void deleteLoai(Integer IDLoai){
+    public void deleteLoai(Integer IDLoai) {
         loaiRepository.deleteById(IDLoai);
     }
 
     @Override
-    public LoaiSP findLoaiSPById(Integer IDLoai){
+    public LoaiSP findLoaiSPById(Integer IDLoai) {
         return loaiRepository.findById(IDLoai).orElse(null);
     }
+
 }
