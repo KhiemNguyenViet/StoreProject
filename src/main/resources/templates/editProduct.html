@@ -457,7 +457,7 @@
     <div class="form-header text-center">
         <h1>Edit Product</h1>
     </div>
-    <form th:object="${ctsp}" th:action="@{saveprd}" method="post">
+    <form th:object="${ctsp}" th:action="@{/edit}" method="post"  >
         <input type="hidden" th:text="*{IDSP}">
         <div class="mb-3">
             <label th:for="tenSP"  >Tên sản phẩm</label>
@@ -472,16 +472,40 @@
         <!--            <input type="text" class="form-control" id="productName" placeholder="Nhập màu sắc sản phẩm" required>-->
         <!--        </div>-->
 
-        <!--Kích cỡ-->
-
+        <!--Loại sp-->
         <div class="mb-3">
-            <label class="form-label" th:for="IDSize">Kích cỡ</label>
-            <select id="IDSize" name="tenSize">
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-            </select><br>
+            <div class="mb-3">
+                <label class="form-label" th:for="IDLoai">Loại sản phẩm :</label>
+                <select id="IDLoai" th:field="*{loaisp}">
+                    <option th:each="loaisp : ${loaiSP}"
+                            th:value="${loaisp.IDLoai}"
+                            th:text="${loaisp.TenLoai}"></option>
+                </select><br>
+            </div>
+        </div>
+
+        <!--Voucher-->
+        <div class="mb-3">
+            <div class="mb-3">
+                <label class="form-label" th:for="Voucher">Voucher :</label>
+                <select id="Voucher" th:field="*{khuyenMai}">
+                    <option th:each="khuyenMai : ${khuyenMai}"
+                            th:value="${khuyenMai.IDKhuyenMai}"
+                            th:text="${khuyenMai.tenKhuyenMai}"></option>
+                </select><br>
+            </div>
+        </div>
+
+        <!--Kích cỡ-->
+        <div class="mb-3">
+            <div class="mb-3">
+                <label class="form-label" th:for="IDSize">Kích cỡ</label>
+                <select id="IDSize" th:field="*{size}">
+                    <option th:each="size : ${size}"
+                            th:value="${size.IDSize}"
+                            th:text="${size.tenSize}"></option>
+                </select><br>
+            </div>
         </div>
 
         <div class="mb-3">

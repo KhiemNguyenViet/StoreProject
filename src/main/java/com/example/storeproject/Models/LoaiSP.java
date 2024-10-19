@@ -3,6 +3,8 @@ package com.example.storeproject.Models;
 import jakarta.persistence.*;
 import lombok.Getter;
 
+import java.util.List;
+
 @Getter
 @Entity
 @Table(name="loaisp")
@@ -12,6 +14,9 @@ public class LoaiSP {
     private Integer IDLoai;
     private String TenLoai;
 
+    @OneToMany(mappedBy = "loaisp")
+    private List<ChiTietSanPham> chiTietSanPhams;
+
     public LoaiSP() {
     }
 
@@ -20,6 +25,17 @@ public class LoaiSP {
         TenLoai = tenLoai;
     }
 
+    public LoaiSP(List<ChiTietSanPham> chiTietSanPhams) {
+        this.chiTietSanPhams = chiTietSanPhams;
+    }
+
+    public List<ChiTietSanPham> getChiTietSanPhams() {
+        return chiTietSanPhams;
+    }
+
+    public void setChiTietSanPhams(List<ChiTietSanPham> chiTietSanPhams) {
+        this.chiTietSanPhams = chiTietSanPhams;
+    }
 
     public Integer getIDLoai() {
         return IDLoai;

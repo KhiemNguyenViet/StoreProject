@@ -510,16 +510,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="ctsp : ${ctsp}">
-            <td th:text="${ctsp.IDSP}"></td>
-            <td th:text="${ctsp.tenSP}"></td>
-            <td th:text="${ctsp.soLuong}"></td>
-            <td th:text="${ctsp.gia}"></td>
+        <tr th:each="gioHangs : ${gioHangs}">
+            <td th:text="${gioHangs.id}"></td>
+            <td th:text="${gioHangs.tenSP}"></td>
+            <td th:text="${gioHangs.soLuong}"></td>
+            <td th:text="${gioHangs.gia}"></td>
             <td>
                 <!--                <a th:href="@{/editprd(id=${ctsp.id})}" class="btn btn-primary">Edit</a>-->
                 <a href="" class="btn btn-primary">Thanh toán</a>
                 <a href="store" class="btn btn-primary">Mua thêm</a>
-                <a th:href="@{/deleteCart(id=${ctsp.IDSP})}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Xóa</a>
+                <a th:href="@{/remove/{id}(id=${gioHangs.id})}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Xóa</a>
             </td>
         </tr>
         </tbody>

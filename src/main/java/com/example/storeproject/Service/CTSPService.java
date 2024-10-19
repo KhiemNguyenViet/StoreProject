@@ -6,15 +6,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CTSPService {
-    List<ChiTietSanPham> getAllChiTietSanPham();
-
-    void saveChiTietSanPham(ChiTietSanPham chiTietSanPham);
-
-    void deleteChiTietSanPham(Long id);
-
-    ChiTietSanPham findChiTietSanPhamById(Long id);
-
-    String getSizeName(int idSize);
-
-    String getLoaiName(int idLoai);
+    void save(ChiTietSanPham product);
+    void deleteProduct(int id);
+    List<ChiTietSanPham> getAllProducts();
+    ChiTietSanPham getProductById(int id);
+    String getSizeName(int IDSize);
+    String getLoaiName(int IDLoai);
 }

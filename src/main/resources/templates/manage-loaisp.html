@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản Lý Loại Sản Phẩm</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<h1>Quản Lý Loại Sản Phẩm</h1>
+
+<a href="/loaisp/addLoai">Thêm Loại Sản Phẩm Mới</a>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID Loại</th>
+        <th>Tên Loại</th>
+        <th>Hành Động</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="loaiSP : ${loaisp}">
+        <td th:text="${loaiSP.IDLoai}">1</td>
+        <td th:text="${loaiSP.tenLoai}">Laptop</td>
+        <td>
+            <a th:href="@{'/loaisp/edit/' + ${loaiSP.IDLoai}}">Sửa</a> |
+            <a th:href="@{/loaisp/delete/{id}(id=${loaiSP.IDLoai})}" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
