@@ -1,8 +1,6 @@
 package com.example.storeproject.Service.Impl;
 
-import com.example.storeproject.Models.ChiTietSanPham;
 import com.example.storeproject.Models.Size;
-import com.example.storeproject.Repository.ChiTietSanPhamRepository;
 import com.example.storeproject.Repository.SizeRepository;
 import com.example.storeproject.Service.SizeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,26 +11,27 @@ import java.util.Optional;
 
 @Service
 public class SizeServiceImpl implements SizeService {
+
     @Autowired
     private SizeRepository sizeRepository;
 
     @Override
-    public List<Size> getAllSize(){
+    public List<Size> getAllSize() {
         return (List<Size>) sizeRepository.findAll();
     }
 
     @Override
-    public void saveSize(Size size){
+    public void saveSize(Size size) {
         sizeRepository.save(size);
     }
 
     @Override
-    public void deleteSize(Integer IDSize){
+    public void deleteSize(Integer IDSize) {
         sizeRepository.deleteById(IDSize);
     }
 
     @Override
-    public Size findSizeById(Integer IDSize){
-        return sizeRepository.findById(IDSize).orElse(null);
+    public Size findSizeById(Integer id) {
+        return sizeRepository.findByIDSize(id);
     }
 }

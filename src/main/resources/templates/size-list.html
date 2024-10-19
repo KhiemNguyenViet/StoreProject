@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Size</title>
+</head>
+<body>
+<h1>Danh sách các Size</h1>
+<a href="/size/add">Thêm Size mới</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Tên Size</th>
+        <th>Hành động</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="size : ${sizes}">
+        <td th:text="${size.IDSize}"></td>
+        <td th:text="${size.TenSize}"></td>
+        <td>
+            <a th:href="@{'/size/edit/' + ${size.IDSize}}">Sửa</a>
+            <a th:href="@{'/size/delete/' + ${size.IDSize}}"
+               onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

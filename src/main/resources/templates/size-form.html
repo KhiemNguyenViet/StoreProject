@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm/Sửa Size</title>
+</head>
+<body>
+<h1>Thêm hoặc Sửa Size</h1>
+<form th:object="${size}" action="/size/save" method="post" >
+    <input type="hidden" th:field="*{IDSize}" />
+    <label for="TenSize">Tên Size:</label>
+    <input type="text" id="TenSize" th:field="*{tenSize}" required />
+    <button type="submit">Lưu</button>
+</form>
+<a href="/size/list">Quay lại danh sách</a>
+</body>
+</html>

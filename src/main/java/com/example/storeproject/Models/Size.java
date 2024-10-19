@@ -35,4 +35,5 @@ public class Size {
     public void setTenSize(String tenSize) {
         TenSize = tenSize;
     }
+
 }
