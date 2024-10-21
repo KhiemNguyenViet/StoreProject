@@ -54,7 +54,7 @@
 <body>
 <h1>Thêm Loại Sản Phẩm</h1>
 <div class="container">
-    <form th:object="${loaisp}" th:action="@{/addloaisp}" method="post">
+    <form th:object="${loaisp}" th:action="@{/loaisp/addloaisp}" method="post">
         <div>
             <label th:for="tenLoai">Tên Loại Sản Phẩm:</label>
             <input type="text" th:field="*{tenLoai}" required />

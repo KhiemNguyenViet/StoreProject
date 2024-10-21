@@ -54,7 +54,7 @@ public class LoaiSPController {
     @PostMapping("/update")
     public String updateLoaiSP(@ModelAttribute LoaiSP loaiSP) {
         loaiService.saveLoai(loaiSP);
-        return "redirect:/manage-loaisp"; // Chú ý: Phải có dấu gạch chéo ở đầu
+        return "redirect:/loaisp/manage-loaisp"; // Chú ý: Phải có dấu gạch chéo ở đầu
     }
 
 

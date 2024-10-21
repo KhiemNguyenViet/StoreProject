@@ -54,7 +54,7 @@
 <body>
 <h1>Sửa Loại Sản Phẩm</h1>
 <div class="container">
-    <form th:object="${loaisp}" th:action="@{/update}" method="post"  >
+    <form th:object="${loaisp}" th:action="@{/loaisp/update}" method="post"  >
         <input type="hidden" th:field="*{IDLoai}">
 
         <div class="mb-3">
