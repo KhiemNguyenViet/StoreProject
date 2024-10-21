@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface GioHangService {
     void addToCart(GioHang gioHang);
-    void updateCart(int id, int newQuantity);
+    Integer updateCart(int id, int newQuantity);
     List<GioHang> getCartItems();
     void removeFromCart(int id);
+    GioHang getGioHangId (int id);
 }

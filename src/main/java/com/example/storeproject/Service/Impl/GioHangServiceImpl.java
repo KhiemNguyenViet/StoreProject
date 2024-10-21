@@ -16,18 +16,40 @@ public class GioHangServiceImpl implements GioHangService {
 
     @Override
     public void addToCart(GioHang gioHang) {
+
         gioHangRepository.save(gioHang);
     }
 
     @Override
-    public void updateCart(int id, int newQuantity) {
-        GioHang gioHang = gioHangRepository.findById((long) id).orElse(null);
+    public GioHang getGioHangId (int id){
+        return gioHangRepository.findById(id);
+    }
+
+    @Override
+    public Integer updateCart(int id, int newQuantity) {
+        GioHang gioHang = gioHangRepository.findById(id);
         if (gioHang != null) {
             gioHang.setSoLuong(newQuantity);
-            gioHang.setGia(gioHang.getGia().multiply(BigDecimal.valueOf(newQuantity))); // Cập nhật giá
-            gioHangRepository.save(gioHang);
+
+            // Cập nhật giá, giả sử giá gốc không thay đổi
+            gioHang.setGia(gioHang.getGia().multiply(BigDecimal.valueOf(newQuantity)));
+
+            try {
+                gioHangRepository.save(gioHang);
+            } catch (Exception e) {
+                // Xử lý lỗi nếu có, có thể ghi log hoặc ném ngoại lệ tùy theo nhu cầu
+                System.err.println("Error updating cart: " + e.getMessage());
+                return null;
+            }
+
+            return gioHang.getSoLuong();
+        } else {
+            // Xử lý trường hợp không tìm thấy giỏ hàng
+            System.out.println("Cart not found for ID: " + id);
+            return null;
         }
     }
+
 
     @Override
     public List<GioHang> getCartItems() {

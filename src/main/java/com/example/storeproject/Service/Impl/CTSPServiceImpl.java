@@ -47,7 +47,7 @@ public class CTSPServiceImpl implements CTSPService {
     }
 
     public String getSizeName(int IDSize) {
-        Size size = sizeRepository.findSizeByIDSize(IDSize);
+        Size size = sizeRepository.findByIDSize(IDSize);
         return size != null ? size.getTenSize() : "Không xác định";
     }
 

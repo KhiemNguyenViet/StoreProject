@@ -2,8 +2,12 @@ package com.example.storeproject.Controller;
 
 import com.example.storeproject.Models.ChiTietSanPham;
 import com.example.storeproject.Models.GioHang;
+import com.example.storeproject.Models.PhuongThucThanhToan;
 import com.example.storeproject.Repository.ChiTietSanPhamRepository;
+import com.example.storeproject.Repository.GioHangRepository;
+import com.example.storeproject.Service.CTSPService;
 import com.example.storeproject.Service.GioHangService;
+import com.example.storeproject.Service.PayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,10 +21,23 @@ public class GioHangController {
     private GioHangService gioHangService;
 
     @Autowired
+    private GioHangRepository gioHangRepository;
+
+    @Autowired
     private ChiTietSanPhamRepository chiTietSanPhamRepository;
 
+    @Autowired
+    private PayService payService;
+
+    @Autowired
+    private final CTSPService ctspService;
+
+    public GioHangController(CTSPService ctspService) {
+        this.ctspService = ctspService;
+    }
+
     @PostMapping("/addCart")
-    public String addToCart(@RequestParam int IDSP, @RequestParam int soLuong) {
+    public String addToCart( @RequestParam int IDSP, @RequestParam int soLuong) {
         // Lấy ChiTietSanPham từ cơ sở dữ liệu
         ChiTietSanPham chiTietSanPham = chiTietSanPhamRepository.findByIDSP(IDSP);
 
@@ -31,8 +48,8 @@ public class GioHangController {
         GioHang gioHang = new GioHang();
         // Thiết lập chiTietSanPham cho gioHang
         gioHang.setChiTietSanPham(chiTietSanPham);
-        gioHang.setGia(chiTietSanPham.getGia());
         gioHang.setTenSP(chiTietSanPham.getTenSP());
+        gioHang.setGia(chiTietSanPham.getGia());
         gioHang.setSoLuong(soLuong);
 
         // Lưu giỏ hàng
@@ -41,18 +58,44 @@ public class GioHangController {
         return "redirect:/cart"; // Điều hướng đến trang giỏ hàng
     }
 
-    @PutMapping("/update/{id}/{quantity}")
-    public String updateCart(@PathVariable int id, @PathVariable int quantity) {
-        gioHangService.updateCart(id, quantity);
-        return "Cart updated";
+//    @PostMapping("/update")
+//    public String updateCart(@RequestParam int id, @RequestParam int newQuantity) {
+//        GioHang gioHang= gioHangRepository.findById(id);
+//
+//        PhuongThucThanhToan phuongThucThanhToan = new PhuongThucThanhToan();
+//        phuongThucThanhToan.setTenSP(gioHang.getTenSP());
+//        phuongThucThanhToan.setSoluong(gioHang.getSoLuong());
+//        phuongThucThanhToan.setQuantity(newQuantity);
+//
+//        payService.updateCart(phuongThucThanhToan, id, newQuantity);
+//        return "redirect:/pay"; // Chuyển hướng đến trang thanh toán
+//    }
+
+    @GetMapping("/update")
+    public String updateCart(@RequestParam int id, @RequestParam int newQuantity){
+        gioHangService.updateCart(id, newQuantity);
+        return "pay";
     }
+
+
+    @RequestMapping("/pay")
+    public String pay( @RequestParam int id, Model model){
+        GioHang gioHang = gioHangService.getGioHangId(id);
+        model.addAttribute("gioHang",gioHang);
+
+        List<GioHang> gioHangs = gioHangService.getCartItems();
+        model.addAttribute("gioHangs",gioHangs);
+
+        return "pay";
+    }
+
 
     @GetMapping("/items")
     public List<GioHang> getCartItems() {
         return gioHangService.getCartItems();
     }
 
-    @DeleteMapping("/remove/{id}")
+    @GetMapping("/remove/{id}")
     public String removeFromCart(@PathVariable int id) {
         gioHangService.removeFromCart(id);
         return "redirect:/cart";

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Thanh Toán</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .total {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 class="text-center">Thanh Toán Sản Phẩm</h2>
+    <form action="/processPayment" method="POST">
+        <div class="form-group">
+            <label for="name">Họ và Tên:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Địa Chỉ:</label>
+            <input type="text" class="form-control" id="address" name="address" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Số Điện Thoại:</label>
+            <input type="text" class="form-control" id="phone" name="phone" required>
+        </div>
+
+        <h4>Chi Tiết Đơn Hàng</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Tên Sản Phẩm</th>
+                <th>Số Lượng</th>
+                <th>Giá</th>
+            </tr>
+            </thead>
+            <tbody th:object="${gioHang}" >
+            <tr>
+                <p>IDSP: <span th:text="${gioHang.id}"></span></p>
+                <td th:text="*{tenSP}"></td>
+                <td th:text="*{soLuong}">2</td>
+                <td th:text="*{soLuong*gia}"></td>
+            </tr>
+<!--            <tr>-->
+<!--                <td>Tên Sản Phẩm 2</td>-->
+<!--                <td>1</td>-->
+<!--                <td>150,000 VNĐ</td>-->
+<!--            </tr>-->
+            </tbody>
+        </table>
+
+        <div class="total" th:object="${gioHang}">
+            <td th:text="*{soLuong*gia}+' Đ'"></td>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block mt-4">Xác Nhận Thanh Toán</button>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

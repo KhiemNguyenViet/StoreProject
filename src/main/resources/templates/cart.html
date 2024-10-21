@@ -517,7 +517,10 @@
             <td th:text="${gioHangs.gia}"></td>
             <td>
                 <!--                <a th:href="@{/editprd(id=${ctsp.id})}" class="btn btn-primary">Edit</a>-->
-                <a href="" class="btn btn-primary">Thanh toán</a>
+<!--                <form th:action="@{/update}" method="post">-->
+<!--                    <button type="submit"><a class="btn btn-primary">Thanh toán</a></button>-->
+<!--                </form>-->
+                <a th:href="@{/pay(id=${gioHangs.id})}" class="btn btn-primary">Thanh toán</a>
                 <a href="store" class="btn btn-primary">Mua thêm</a>
                 <a th:href="@{/remove/{id}(id=${gioHangs.id})}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Xóa</a>
             </td>
