@@ -16,6 +16,11 @@ public class ManagerUser {
     public ManagerUser() {
     }
 
+    public ManagerUser(Long idquyen, String namequyen) {
+        this.idquyen = idquyen;
+        this.namequyen = namequyen;
+    }
+
     public Long getIdquyen() {
         return idquyen;
     }

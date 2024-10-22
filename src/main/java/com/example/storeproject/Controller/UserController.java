@@ -58,5 +58,21 @@ public class UserController {
         return "login"; // Chuyển đến trang đăng nhập hoặc trang khác
     }
 
+    @RequestMapping("/list")
+    public String listUser ( Model model){
+        List<NguoiDung> nguoiDungs = nguoiDungService.getAllUsers();
+        model.addAttribute("nguoiDungs",nguoiDungs);
 
+
+        // Giả sử bạn muốn lấy quyền của người quản lý đầu tiên trong danh sách
+//        if (!nguoiDungs.isEmpty()) {
+//            NguoiDung nguoiDung = nguoiDungs.get(0); // Lấy người dùng đầu tiên
+//            String manageruser = nguoiDung.getManageruser().getNamequyen();
+//            model.addAttribute("manageruser", manageruser);
+//        } else {
+//            model.addAttribute("manageruser", "Không có người dùng nào.");
+//        }
+
+        return "user-list";
+    }
 }

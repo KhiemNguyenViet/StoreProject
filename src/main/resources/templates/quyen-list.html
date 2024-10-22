@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Người Dùng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<h1>Quản lý Người Dùng</h1>
+<button class="button"><i class="fas fa-plus"></i><a href="/quyen/add" >Thêm Người Dùng</a></button>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Quyền</th>
+        <th>Chức năng</th>
+    </tr>
+    </thead>
+    <tbody th:each="managerUser : ${managerUsers}">
+    <tr>
+        <td th:text="${managerUser.idquyen}"></td>
+        <td th:text="${managerUser.namequyen}"></td>
+        <td>
+            <button class="button"><i class="fas fa-edit"></i> <a th:href="@{'/quyen/edit/' + ${managerUser.idquyen}}">Sửa</a> </button>
+            <button class="button"><i class="fas fa-trash"></i> <a th:href="@{'/quyen/delete/' + ${managerUser.idquyen}}"
+                                                                   onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a> </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

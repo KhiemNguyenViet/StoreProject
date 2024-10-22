@@ -33,7 +33,7 @@ public class NguoiDungServiceImpl implements NguoiDungService {
 
     @Override
     public Long getNguoiDungquyenId(NguoiDung nguoiDung) {
-        return nguoiDung.getIDQuyen();
+        return nguoiDung.getManageruser().getIdquyen();
     }
 
     @Override
@@ -42,8 +42,23 @@ public class NguoiDungServiceImpl implements NguoiDungService {
     }
 
     public String getManagerUser(NguoiDung nguoiDung) {
-        Long idQuyen = nguoiDung.getIDQuyen();
+        Integer idQuyen = Math.toIntExact(nguoiDung.getManageruser().getIdquyen());
         ManagerUser managerUser = managerUserReporitory.findById(idQuyen).orElse(null);
         return managerUser != null ? managerUser.getNamequyen() : null;
+    }
+
+    @Override
+    public void deleteUser(int idUser){
+        nguoiDungRepository.deleteById(idUser);
+    }
+
+    @Override
+    public List<NguoiDung> getAllUsers(){
+        return nguoiDungRepository.findAll();
+    }
+
+    @Override
+    public NguoiDung getUserById(int idUser){
+        return nguoiDungRepository.findByIdUser(idUser);
     }
 }

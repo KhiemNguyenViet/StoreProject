@@ -10,5 +10,8 @@ public interface NguoiDungService {
     NguoiDung authenticate(String username, String password);
     Long getNguoiDungquyenId(NguoiDung nguoiDung);
     void save(NguoiDung nguoiDung);
+    void deleteUser(int idUser);
+    NguoiDung getUserById(int idUser);
+    List<NguoiDung> getAllUsers();
 
 }

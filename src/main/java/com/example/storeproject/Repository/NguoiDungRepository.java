@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 
-public interface NguoiDungRepository extends JpaRepository<NguoiDung,Long> {
+public interface NguoiDungRepository extends JpaRepository<NguoiDung,Integer> {
     NguoiDung findByUsername(String username);
+    NguoiDung findByIdUser(Integer idUser);
 }

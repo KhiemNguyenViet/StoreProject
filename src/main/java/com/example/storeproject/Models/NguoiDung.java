@@ -22,12 +22,14 @@ public class NguoiDung {
     private String GioiTinh;
     private String password;
     private String username;
-    private Long IDQuyen;
+    @ManyToOne
+    @JoinColumn(name = "idquyen", nullable = false)
+    private  ManagerUser usermanager;
 
     public NguoiDung() {
     }
 
-    public NguoiDung(int idUser, String ten, Date ngaySinh, String diaChi, String SDT, String mail, String gioiTinh, String password, String username, Long IDQuyen) {
+    public NguoiDung(int idUser, String ten, Date ngaySinh, String diaChi, String SDT, String mail, String gioiTinh, String password, String username, ManagerUser usermanager) {
         this.idUser = idUser;
         Ten = ten;
         NgaySinh = ngaySinh;
@@ -37,7 +39,7 @@ public class NguoiDung {
         GioiTinh = gioiTinh;
         this.password = password;
         this.username = username;
-        this.IDQuyen = IDQuyen;
+        this.usermanager = usermanager;
     }
 
     public int getIdUser() {
@@ -112,11 +114,11 @@ public class NguoiDung {
         this.username = username;
     }
 
-    public Long getIDQuyen() {
-        return IDQuyen;
+    public ManagerUser getManageruser() {
+        return usermanager;
     }
 
-    public void setIDQuyen(Long IDQuyen) {
-        this.IDQuyen = IDQuyen;
+    public void setManageruser(ManagerUser usermanager) {
+        this.usermanager = usermanager;
     }
 }
