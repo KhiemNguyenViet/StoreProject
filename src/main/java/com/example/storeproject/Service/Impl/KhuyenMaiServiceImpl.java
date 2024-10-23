@@ -25,12 +25,12 @@ public class KhuyenMaiServiceImpl implements KhuyenMaiService {
     }
 
     @Override
-    public void deleteKhuyenMai(Long id){
+    public void deleteKhuyenMai(int id){
         khuyenMaiRepository.deleteById(id);
     }
 
     @Override
-    public Optional<KhuyenMai> findKhuyenMaiById(Long id){
-        return khuyenMaiRepository.findById(id);
+    public KhuyenMai findKhuyenMaiById(int IDKhuyenMai){
+        return khuyenMaiRepository.findById(IDKhuyenMai);
     }
 }

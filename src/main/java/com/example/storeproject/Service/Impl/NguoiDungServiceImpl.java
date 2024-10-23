@@ -37,6 +37,11 @@ public class NguoiDungServiceImpl implements NguoiDungService {
     }
 
     @Override
+    public String getNguoiDungQuyenName(NguoiDung nguoiDung){
+        return nguoiDung.getManageruser().getNamequyen();
+    }
+
+    @Override
     public void save(NguoiDung nguoiDung) {
         nguoiDungRepository.save(nguoiDung);
     }
@@ -59,6 +64,11 @@ public class NguoiDungServiceImpl implements NguoiDungService {
 
     @Override
     public NguoiDung getUserById(int idUser){
+        return nguoiDungRepository.findByIdUser(idUser);
+    }
+
+    @Override
+    public NguoiDung findNguoiDungById(Integer idUser) {
         return nguoiDungRepository.findByIdUser(idUser);
     }
 }

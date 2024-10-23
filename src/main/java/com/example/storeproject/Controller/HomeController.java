@@ -21,13 +21,19 @@ public class HomeController {
     private final KhuyenMaiService khuyenMaiService;
     @Autowired
     private final GioHangService gioHangService;
+    @Autowired
+    private final ManagerUserService managerUserService;
+    @Autowired
+    private final NguoiDungService nguoiDungService;
 
-    public HomeController(CTSPService ctspService, SizeService sizeService, LoaiService loaiService, KhuyenMaiService khuyenMaiService, GioHangService gioHangService) {
+    public HomeController(CTSPService ctspService, SizeService sizeService, LoaiService loaiService, KhuyenMaiService khuyenMaiService, GioHangService gioHangService, ManagerUserService managerUserService, NguoiDungService nguoiDungService) {
         this.ctspService = ctspService;
         this.sizeService = sizeService;
         this.loaiService = loaiService;
         this.khuyenMaiService = khuyenMaiService;
         this.gioHangService = gioHangService;
+        this.managerUserService = managerUserService;
+        this.nguoiDungService = nguoiDungService;
     }
 
     @RequestMapping("home")
@@ -37,9 +43,31 @@ public class HomeController {
         return "home";
     }
 
+//    @RequestMapping("login")
+//    public String login( Model model){
+//        return "login";
+//    }
+
     @RequestMapping("login")
-    public String login(Model model){
+    public String login( Model model){
         return "login";
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestParam String username, @RequestParam String password, Model model) {
+        NguoiDung nguoiDung = nguoiDungService.authenticate(username, password);
+        if (nguoiDung != null) {
+            // Kiểm tra quyền hạn
+            String quyenname = nguoiDungService.getNguoiDungQuyenName(nguoiDung);
+            if ("Quản Lý".equals(quyenname)) {
+                return "redirect:/user/homeql"; // Trang dành cho admin
+            } else {
+                return "redirect:/user/home"; // Trang dành cho người dùng bình thường
+            }
+        } else {
+            model.addAttribute("error", "Tên người dùng hoặc mật khẩu không đúng.");
+            return "login"; // Trở lại trang đăng nhập
+        }
     }
 
     @RequestMapping("signup")

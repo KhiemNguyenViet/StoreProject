@@ -44,30 +44,23 @@
 </head>
 <body>
 <h1>Quản lý Người Dùng</h1>
-<button class="button"><i class="fas fa-plus"></i> Thêm Người Dùng</button>
+<button class="button"><i class="fas fa-plus"></i><a href="/quyen/add" >Thêm Người Dùng</a></button>
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>Tên</th>
-        <th>Mật khẩu</th>
-        <th>Email</th>
         <th>Quyền</th>
         <th>Chức năng</th>
     </tr>
     </thead>
-    <tbody th:each="nguoidung : ${nguoiDungs}">
+    <tbody th:each="managerUser : ${managerUsers}">
     <tr>
-        <td th:text="${nguoidung.idUser}"></td>
-        <td th:text="${nguoidung.username}"></td>
-        <td th:text="${nguoidung.password}"></td>
-        <td th:text="${nguoidung.mail}"></td>
-        <td th:text="${nguoidung.usermanager.namequyen}"></td>
-<!--        nguoidung.usermanager != null ? nguoiDung.usermanager.namequyen : 'Chưa có quyền'-->
+        <td th:text="${managerUser.idquyen}"></td>
+        <td th:text="${managerUser.namequyen}"></td>
         <td>
-            <button class="button"><i class="fas fa-edit"></i> <a th:href="@{'/user/edit/' + ${nguoidung.idUser}}" >Sửa</a> </button>
-            <button class="button"><i class="fas fa-trash"></i> <a th:href="@{'/user/delete/' + ${nguoidung.idUser}}"
-                                                                   onclick="return confirm('Bạn có chắc chắn muốn xóa?')" >Xóa</a> </button>
+            <button class="button"><i class="fas fa-edit"></i> <a th:href="@{'/quyen/edit/' + ${managerUser.idquyen}}">Sửa</a> </button>
+            <button class="button"><i class="fas fa-trash"></i> <a th:href="@{'/quyen/delete/' + ${managerUser.idquyen}}"
+                                                                   onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a> </button>
         </td>
     </tr>
     </tbody>

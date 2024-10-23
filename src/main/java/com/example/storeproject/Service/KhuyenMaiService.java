@@ -11,7 +11,7 @@ public interface KhuyenMaiService{
 
     void saveKhuyenMai(KhuyenMai khuyenMai);
 
-    void deleteKhuyenMai(Long id);
+    void deleteKhuyenMai(int id);
 
-    Optional<KhuyenMai> findKhuyenMaiById(Long id);
+    KhuyenMai findKhuyenMaiById(int id);
 }

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sửa và Thêm Người Dùng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<h1>Sửa và Thêm Người Dùng</h1>
+<div class="form-container">
+    <form th:object="${nguoiDung}" th:action="@{/user/save}" method="post">
+        <div class="form-group">
+            <label for="idUser">ID Quyền</label>
+            <input type="hidden" th:field="*{idUser}" id="idUser" name="idUser" required>
+        </div>
+        <div class="form-group">
+            <label for="ten">Tên:</label>
+            <input type="text" id="ten" name="ten" th:field="${nguoiDung.username}" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="password" name="password" th:value="${nguoiDung.password}" required>
+        </div>
+        <div class="form-group">
+            <label for="mail">Email:</label>
+            <input type="email" id="mail" name="mail" th:value="${nguoiDung.mail}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="quyen">Quyền</label>
+                        <select th:field="*{manageruser}" id="quyen" name="quyen" required>
+                            <option th:each="managerUser : ${managerUsers}"
+                                    th:value="${managerUser.idquyen}"
+                                    th:text="${managerUser.namequyen}" ></option>
+<!--                            <option value="editor">Biên tập viên</option>-->
+                        </select>
+<!--            <input type="text" th:field="*{usermanager}" id="quyen" name="quyen" required>-->
+        </div>
+        <button type="submit" class="button"><i class="fas fa-save"></i> Lưu</button>
+    </form>
+    <a href="/user/list">Quay lại danh sách</a>
+</div>
+</body>
+</html>
