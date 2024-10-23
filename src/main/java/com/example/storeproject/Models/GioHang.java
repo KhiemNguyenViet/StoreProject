@@ -19,6 +19,7 @@ public class GioHang {
     private int soLuong; // Thêm thuộc tính số lượng
     private Boolean maGiamGia;
     private BigDecimal gia;
+    private String AnhSP;
 
     @ManyToOne
     @JoinColumn(name = "IDSP", nullable = false)
@@ -26,6 +27,20 @@ public class GioHang {
 
 
 //     Getter và Setter cho soLuong
+
+
+    public String getAnhSP() {
+        return AnhSP;
+    }
+
+    public void setAnhSP(String anhSP) {
+        AnhSP = anhSP;
+    }
+
+    public GioHang(String anhSP) {
+        AnhSP = anhSP;
+    }
+
     public int getSoLuong() {
         return soLuong;
     }

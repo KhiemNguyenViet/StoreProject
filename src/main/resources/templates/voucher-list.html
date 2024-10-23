@@ -49,17 +49,21 @@
     <thead>
     <tr>
         <th>ID</th>
-        <th>Quyền</th>
+        <th>Tên khuyến mãi</th>
+        <th>Giá trị</th>
+        <th>Mô tả</th>
         <th>Chức năng</th>
     </tr>
     </thead>
-    <tbody th:each="managerUser : ${managerUsers}">
+    <tbody th:each="khuyenmai : ${khuyenmais}">
     <tr>
-        <td th:text="${managerUser.idquyen}"></td>
-        <td th:text="${managerUser.namequyen}"></td>
+        <td th:text="${khuyenmai.IDKhuyenMai}"></td>
+        <td th:text="${khuyenmai.tenKhuyenMai}"></td>
+        <td th:text="${khuyenmai.giaTri} +'%'"></td>
+        <td th:text="${khuyenmai.moTa}"></td>
         <td>
-            <button class="button"><i class="fas fa-edit"></i> <a th:href="@{'/quyen/edit/' + ${managerUser.idquyen}}">Sửa</a> </button>
-            <button class="button"><i class="fas fa-trash"></i> <a th:href="@{'/quyen/delete/' + ${managerUser.idquyen}}"
+            <button class="button"><i class="fas fa-edit"></i> <a th:href="@{'/khuyenmai/edit/' + ${khuyenmai.IDKhuyenMai}}">Sửa</a> </button>
+            <button class="button"><i class="fas fa-trash"></i> <a th:href="@{'/khuyenmai/delete/' + ${khuyenmai.IDKhuyenMai}}"
                                                                    onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a> </button>
         </td>
     </tr>

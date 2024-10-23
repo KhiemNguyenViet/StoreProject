@@ -118,7 +118,7 @@ public class UserController {
 //            model.addAttribute("manageruser", "Không có người dùng nào.");
 //        }
 
-    // Form chỉnh sửa size
+
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable("id") Integer id, Model model) {
         NguoiDung nguoiDung = nguoiDungService.findNguoiDungById(id);
@@ -128,7 +128,7 @@ public class UserController {
         return "user-form"; // Sử dụng cùng giao diện với thêm size
     }
 
-    // Xóa size
+
     @GetMapping("/delete/{id}")
     public String deleteUser(@PathVariable("id") Integer id) {
         nguoiDungService.deleteUser(id);

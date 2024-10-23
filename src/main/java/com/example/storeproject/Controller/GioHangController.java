@@ -2,11 +2,13 @@ package com.example.storeproject.Controller;
 
 import com.example.storeproject.Models.ChiTietSanPham;
 import com.example.storeproject.Models.GioHang;
+import com.example.storeproject.Models.KhuyenMai;
 import com.example.storeproject.Models.PhuongThucThanhToan;
 import com.example.storeproject.Repository.ChiTietSanPhamRepository;
 import com.example.storeproject.Repository.GioHangRepository;
 import com.example.storeproject.Service.CTSPService;
 import com.example.storeproject.Service.GioHangService;
+import com.example.storeproject.Service.KhuyenMaiService;
 import com.example.storeproject.Service.PayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +34,9 @@ public class GioHangController {
     @Autowired
     private final CTSPService ctspService;
 
+    @Autowired
+    private KhuyenMaiService khuyenMaiService;
+
     public GioHangController(CTSPService ctspService) {
         this.ctspService = ctspService;
     }
@@ -47,6 +52,7 @@ public class GioHangController {
 
         GioHang gioHang = new GioHang();
         // Thiết lập chiTietSanPham cho gioHang
+        gioHang.setAnhSP(chiTietSanPham.getAnhSP());
         gioHang.setChiTietSanPham(chiTietSanPham);
         gioHang.setTenSP(chiTietSanPham.getTenSP());
         gioHang.setGia(chiTietSanPham.getGia());
@@ -86,6 +92,10 @@ public class GioHangController {
         List<GioHang> gioHangs = gioHangService.getCartItems();
         model.addAttribute("gioHangs",gioHangs);
 
+        KhuyenMai khuyenMai = khuyenMaiService.findKhuyenMaiById(id);
+        model.addAttribute("khuyenmai",khuyenMai);
+
+
         return "pay";
     }
 
@@ -105,6 +115,9 @@ public class GioHangController {
     public String cart(Model model){
         List<GioHang> gioHangs = gioHangService.getCartItems();
         model.addAttribute("gioHangs",gioHangs);
+
+        List<ChiTietSanPham> chiTietSanPhams = ctspService.getAllProducts();
+        model.addAttribute("ctsp",chiTietSanPhams);
         return "cart";
     }
 }

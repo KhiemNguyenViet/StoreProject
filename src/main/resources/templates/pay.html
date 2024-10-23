@@ -46,14 +46,16 @@
                 <th>Tên Sản Phẩm</th>
                 <th>Số Lượng</th>
                 <th>Giá</th>
+                <th>Khuyến Mãi</th>
             </tr>
             </thead>
             <tbody th:object="${gioHang}" >
             <tr>
                 <p>IDSP: <span th:text="${gioHang.id}"></span></p>
                 <td th:text="*{tenSP}"></td>
-                <td th:text="*{soLuong}">2</td>
-                <td th:text="*{soLuong*gia}"></td>
+                <td th:text="*{soLuong}"></td>
+                <td th:text="*{gia}"></td>
+                <td th:text="${khuyenmai.giaTri}"></td>
             </tr>
 <!--            <tr>-->
 <!--                <td>Tên Sản Phẩm 2</td>-->

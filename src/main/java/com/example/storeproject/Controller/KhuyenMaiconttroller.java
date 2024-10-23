@@ -33,24 +33,24 @@ public class KhuyenMaiconttroller {
     @PostMapping("/addKhuyenMai")
     public String addKhuyenMai(@ModelAttribute KhuyenMai khuyenMai) {
         khuyenMaiService.saveKhuyenMai(khuyenMai);
-        return "redirect:/khuyenmai/manage-khuyenmai";
+        return "redirect:/khuyenmai/voucher-form";
     }
     @GetMapping("/delete/{id}")
     public String deleteKhuyenMai(@PathVariable("id") Integer idKhuyenMai) {
         khuyenMaiService.deleteKhuyenMai(idKhuyenMai);
-        return "redirect:/khuyenmai/manage-khuyenmai";
+        return "redirect:/khuyenmai/voucher-list";
     }
 
     @GetMapping("/edit/{id}")
     public String editKhuyenMai(@PathVariable("id") Integer idKhuyenMai, Model model) {
-        Object khuyenMai = khuyenMaiService.findKhuyenMaiById(idKhuyenMai);
+        KhuyenMai khuyenMai = khuyenMaiService.findKhuyenMaiById(idKhuyenMai);
         model.addAttribute("khuyenmai", khuyenMai);
-        return "edit-khuyenmai";
+        return "voucher-form";
     }
 
     @PostMapping("/update")
     public String updateKhuyenMai(@ModelAttribute KhuyenMai khuyenMai) {
         khuyenMaiService.saveKhuyenMai(khuyenMai);
-        return "redirect:/khuyenmai/manage-khuyenmai";
+        return "redirect:/khuyenmai/voucher-list";
     }
 }

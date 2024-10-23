@@ -1,10 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sửa và Thêm Quyền Người Dùng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-
+<h1>Sửa và Thêm Quyền Người Dùng</h1>
+<div class="form-container">
+    <form th:object="${khuyenmai}" action="/quyen/save" method="post">
+        <div class="form-group">
+            <label for="idUser">ID Quyền</label>
+            <input type="hidden" th:field="*{IDKhuyenMai}" id="idUser" name="idUser" required>
+        </div>
+        <div class="form-group">
+            <label for="quyen">Quyền</label>
+            <!--            <select th:field="*{namequyen}" id="quyen" name="quyen" required>-->
+            <!--                <option value="admin">Quản trị viên</option>-->
+            <!--                <option value="user">Người dùng</option>-->
+            <!--                <option value="editor">Biên tập viên</option>-->
+            <!--            </select>-->
+            <input type="text" th:field="*{tenKhuyenMai}" id="quyen" name="quyen" required>
+        </div>
+        <div class="form-group">
+            <label for="giatri">Giá Trị</label>
+            <input type="text" th:field="*{giaTri}" id="giatri" name="giatri" required>
+        </div>
+        <div class="form-group">
+            <label for="loaikhuyenmai">Loại Khuyến Mãi</label>
+            <input type="text" th:field="*{loaiKhuyenMai}" id="loaikhuyenmai" name="loaikhuyenmai" required>
+        </div>
+        <div class="form-group">
+            <label for="mota">Mô Tả</label>
+            <input type="text" th:field="*{moTa}" id="mota" name="mota" required>
+        </div>
+        <button type="submit" class="button"><i class="fas fa-save"></i> Lưu</button>
+    </form>
+    <a href="/khuyenmai/list">Quay lại danh sách</a>
+</div>
 </body>
 </html>

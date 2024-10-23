@@ -502,7 +502,7 @@
     <table class="table">
         <thead>
         <tr>
-            <th>ID</th>
+            <th>Hình ảnh sản phẩm</th>
             <th>Tên</th>
             <th>Số lượng</th>
             <th>Giá</th>
@@ -511,7 +511,8 @@
         </thead>
         <tbody>
         <tr th:each="gioHangs : ${gioHangs}">
-            <td th:text="${gioHangs.id}"></td>
+<!--            <img th:src="${gioHangs.anhSP}" alt="">-->
+            <td th:src="${gioHangs.anhSP}"><img style="height:200px; width: 150px" th:src="${gioHangs.anhSP}" alt=""></td>
             <td th:text="${gioHangs.tenSP}"></td>
             <td th:text="${gioHangs.soLuong}"></td>
             <td th:text="${gioHangs.gia}"></td>

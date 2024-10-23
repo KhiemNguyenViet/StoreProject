@@ -24,21 +24,21 @@ public class QuyenController {
 
     }
 
-    // Form thêm size
+    // Form thêm
     @GetMapping("/add")
     public String showAddForm(Model model) {
         model.addAttribute("managerUser", new ManagerUser());
         return "quyen-form"; // Giao diện thêm size
     }
 
-    // Lưu size mới
+    // Lưu  mới
     @PostMapping("/save")
     public String saveManagerUser(@ModelAttribute("manageruser") ManagerUser managerUser) {
         managerUserService.saveManagerUser(managerUser);
         return "redirect:/quyen/list";
     }
 
-    // Form chỉnh sửa size
+    // Form chỉnh sửa
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable("id") Integer id, Model model) {
         ManagerUser managerUser = managerUserService.findManagerUserById(id);
@@ -46,7 +46,7 @@ public class QuyenController {
         return "quyen-form"; // Sử dụng cùng giao diện với thêm size
     }
 
-    // Xóa size
+    // Xóa 
     @GetMapping("/delete/{id}")
     public String deleteManagerUser(@PathVariable("id") Integer id) {
         managerUserService.deleteManagerUser(id);
